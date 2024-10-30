@@ -17,7 +17,7 @@ public class Usuario {
     /**
     * el atributo nombreUsuario de tipo String  se refiere al nombre que tendra como usuario.
     */
-    private String nombre_suario; 
+    private String nombre_usuario; 
     
     /**
     * el atributo contraseña de tipo String  se refiere a la contraseña del usuario.
@@ -29,7 +29,7 @@ public class Usuario {
 
     public Usuario(int id_usuario, String nombre_suario, String contrasenia) {
         this.id_usuario = id_usuario;
-        this.nombre_suario = nombre_suario;
+        this.nombre_usuario = nombre_suario;
         this.contrasenia = contrasenia;
     }
 
@@ -44,12 +44,12 @@ public class Usuario {
         this.id_usuario = id_usuario;
     }
 
-    public String getNombre_suario() {
-        return nombre_suario;
+    public String getNombre_usuario() {
+        return nombre_usuario;
     }
 
-    public void setNombre_suario(String nombre_suario) {
-        this.nombre_suario = nombre_suario;
+    public void setNombre_usuario(String nombre_usuario) {
+        this.nombre_usuario = nombre_usuario;
     }
 
     public String getContrasenia() {
@@ -65,7 +65,7 @@ public class Usuario {
 
     @Override
     public String toString() {
-        return "Usuario{" + "id_usuario=" + id_usuario + ", nombre_suario=" + nombre_suario + ", contrasenia=" + contrasenia + '}';
+        return "Usuario{" + "id_usuario=" + id_usuario + ", nombre_usuario=" + nombre_usuario + ", contrasenia=" + contrasenia + '}';
     }
     
     
