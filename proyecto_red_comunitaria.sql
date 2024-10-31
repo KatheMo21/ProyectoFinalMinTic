@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 30-10-2024 a las 03:50:10
+-- Tiempo de generación: 31-10-2024 a las 17:44:19
 -- Versión del servidor: 10.4.32-MariaDB
--- Versión de PHP: 8.2.12
+-- Versión de PHP: 8.1.25
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -63,7 +63,7 @@ CREATE TABLE `pais` (
   `id_pais` int(11) NOT NULL,
   `nombre` varchar(100) NOT NULL,
   `estado` varchar(100) NOT NULL,
-  `poblacion` varchar(100) NOT NULL,
+  `poblacion` double NOT NULL,
   `ciudad` varchar(100) NOT NULL,
   `region` varchar(100) NOT NULL,
   `latitud` varchar(100) NOT NULL,
@@ -95,7 +95,7 @@ CREATE TABLE `proyecto` (
 
 CREATE TABLE `usuario` (
   `id_usuario` int(10) NOT NULL,
-  `nombre_Usuario` varchar(100) NOT NULL,
+  `nombre_usuario` varchar(100) NOT NULL,
   `contrasenia` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -181,14 +181,14 @@ ALTER TABLE `usuario`
 -- Filtros para la tabla `emprendedor`
 --
 ALTER TABLE `emprendedor`
-  ADD CONSTRAINT `emprendedor_ibfk_1` FOREIGN KEY (`id_pais_nacimiento`) REFERENCES `pais` (`id_Pais`),
-  ADD CONSTRAINT `fk_id_usuario` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_Usuario`);
+  ADD CONSTRAINT `emprendedor_ibfk_1` FOREIGN KEY (`id_pais_nacimiento`) REFERENCES `pais` (`id_pais`),
+  ADD CONSTRAINT `fk_id_usuario` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`);
 
 --
 -- Filtros para la tabla `gestiondeinformacion`
 --
 ALTER TABLE `gestiondeinformacion`
-  ADD CONSTRAINT `gestiondeinformacion_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_Usuario`),
+  ADD CONSTRAINT `gestiondeinformacion_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`),
   ADD CONSTRAINT `gestiondeinformacion_ibfk_2` FOREIGN KEY (`id_proyecto`) REFERENCES `proyecto` (`id_proyecto`);
 
 --

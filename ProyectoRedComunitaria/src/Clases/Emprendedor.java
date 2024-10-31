@@ -55,7 +55,7 @@ public class Emprendedor {
     /**
     * el atributo añoNacimiento de tipo String  se refiere al año de nacimiento del emprendedor.
     */
-    private String año_nacimiento; 
+    private String anio_nacimiento; 
     
     /**
     * el atributo mesNacimiento de tipo String  se refiere al mes de naciminto del emprendedor.
@@ -64,7 +64,7 @@ public class Emprendedor {
 
     ////////////////////////////////////// CONSTRUCTOR ///////////////////////////////////////////////
     
-    public Emprendedor(int id_emprendedor, int id_pais_nacimiento,int id_usuario, String nombre, String apellido, String edad, String genero, String profesion, String año_nacimiento, String mes_nacimiento) {
+    public Emprendedor(int id_emprendedor, int id_pais_nacimiento,int id_usuario, String nombre, String apellido, String edad, String genero, String profesion, String anio_nacimiento, String mes_nacimiento) {
         this.id_emprendedor = id_emprendedor;
         this.id_pais_nacimiento = id_pais_nacimiento;
         this.id_usuario = id_usuario; 
@@ -73,7 +73,7 @@ public class Emprendedor {
         this.edad = edad;
         this.genero = genero;
         this.profesion = profesion;
-        this.año_nacimiento = año_nacimiento;
+        this.anio_nacimiento = anio_nacimiento;
         this.mes_nacimiento = mes_nacimiento;
         
     }
@@ -149,12 +149,12 @@ public class Emprendedor {
         this.profesion = profesion;
     }
 
-    public String getAño_nacimiento() {
-        return año_nacimiento;
+    public String getAnio_nacimiento() {
+        return anio_nacimiento;
     }
 
-    public void setAño_nacimiento(String año_nacimiento) {
-        this.año_nacimiento = año_nacimiento;
+    public void setAnio_nacimiento(String año_nacimiento) {
+        this.anio_nacimiento = año_nacimiento;
     }
 
     public String getMes_nacimiento() {
@@ -169,7 +169,7 @@ public class Emprendedor {
 
     @Override
     public String toString() {
-        return "Emprendedor{" + "id_emprendedor=" + id_emprendedor + ", id_pais_nacimiento=" + id_pais_nacimiento + ", id_usuario=" + id_usuario + ", nombre=" + nombre + ", apellido=" + apellido + ", edad=" + edad + ", genero=" + genero + ", profesion=" + profesion + ", a\u00f1o_nacimiento=" + año_nacimiento + ", mes_nacimiento=" + mes_nacimiento + '}';
+        return "Emprendedor{" + "id_emprendedor=" + id_emprendedor + ", id_pais_nacimiento=" + id_pais_nacimiento + ", id_usuario=" + id_usuario + ", nombre=" + nombre + ", apellido=" + apellido + ", edad=" + edad + ", genero=" + genero + ", profesion=" + profesion + ", anio_nacimiento=" + anio_nacimiento + ", mes_nacimiento=" + mes_nacimiento + '}';
     }
 
     
