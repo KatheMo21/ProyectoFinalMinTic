@@ -103,9 +103,9 @@ public class EmprendedorDAO {
 
         while (rs.next()) {
             Emprendedor emprendedor = new Emprendedor();
-            emprendedor.setId_emprendedor(rs.getInt("id_proyecto"));
-            emprendedor.setId_pais_nacimiento(rs.getInt("id_emprendedor"));
-            emprendedor.setId_usuario(rs.getInt("id_pais_creacion"));
+            emprendedor.setId_emprendedor(rs.getInt("id_emprendedor"));
+            emprendedor.setId_pais_nacimiento(rs.getInt("id_pais_nacimiento"));
+            emprendedor.setId_usuario(rs.getInt("id_usuario"));
             emprendedor.setNombre(rs.getString("nombre"));
             emprendedor.setApellido(rs.getString("apellido"));
             emprendedor.setEdad(rs.getString("edad"));
