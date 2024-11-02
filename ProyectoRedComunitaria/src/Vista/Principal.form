@@ -9,22 +9,31 @@
             <Property name="text" type="java.lang.String" value="Ingresar Informaci&#xf3;n"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuUsuario">
+            <MenuItem class="javax.swing.JMenuItem" name="itmUsuario">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Usuarios"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="itmUsuarioActionPerformed"/>
+              </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuPais">
+            <MenuItem class="javax.swing.JMenuItem" name="itmPais">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Paises"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="itmPaisActionPerformed"/>
+              </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuEmprendedor">
+            <MenuItem class="javax.swing.JMenuItem" name="itmEmprendedor">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Emprendedores"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="itmEmprendedorActionPerformed"/>
+              </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuProyecto">
+            <MenuItem class="javax.swing.JMenuItem" name="itmProyecto">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Proyectos"/>
               </Properties>

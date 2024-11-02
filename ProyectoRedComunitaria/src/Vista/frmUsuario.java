@@ -4,19 +4,46 @@
  */
 package Vista;
 
+import Clases.Usuario;
+import Controlador.UsuarioControlador;
+import java.sql.SQLException;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Katherin
  */
-public class frmUsuario extends javax.swing.JDialog {
+public class frmUsuario extends javax.swing.JInternalFrame {
+
+    private UsuarioControlador usuarioController;
+    private static Usuario usuario = new Usuario();
+    private List<Usuario> listaUsuario;
+    DefaultTableModel tableModel = new DefaultTableModel();
 
     /**
-     * Creates new form Emprendedor
+     * Creates new form frmUsuario
      */
-    public frmUsuario(java.awt.Frame parent, boolean modal) {
-        super(parent, modal);
+    public frmUsuario() throws SQLException {
         initComponents();
+        usuarioController = new UsuarioControlador();
+
+        //Crear el modelo de tabla con los nombres de las columnas 
+        String[] titulosTabla = new String[]{"ID", "NOMBRE_USUARIO", "CONTRASENIA"};
+        tableModel.setColumnIdentifiers(titulosTabla);
+        tblTabla.setModel(tableModel);
+        
+        listar(); //entra cargando la tabla usuario de la base de datos
+
+        inicializarBotonera();
+        
+        
     }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -28,7 +55,7 @@ public class frmUsuario extends javax.swing.JDialog {
     private void initComponents() {
 
         bg = new javax.swing.JPanel();
-        btnTAgregar = new javax.swing.JButton();
+        btnAgregar = new javax.swing.JButton();
         btnActualizar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabelActualizar = new javax.swing.JLabel();
@@ -46,26 +73,27 @@ public class frmUsuario extends javax.swing.JDialog {
         jLabelID2 = new javax.swing.JLabel();
         txtNombreUsuario = new javax.swing.JTextField();
         jLabelBuscarPor = new javax.swing.JLabel();
-        txtContrasenia1 = new javax.swing.JTextField();
+        txtContrasenia = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblTabla = new javax.swing.JTable();
+        txtId = new javax.swing.JTextField();
         jLabelFondo2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         bg.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnTAgregar.setBackground(new java.awt.Color(204, 204, 204));
-        btnTAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/agregar.png"))); // NOI18N
-        btnTAgregar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnTAgregar.setBorderPainted(false);
-        btnTAgregar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnTAgregar.addActionListener(new java.awt.event.ActionListener() {
+        btnAgregar.setBackground(new java.awt.Color(204, 204, 204));
+        btnAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/agregar.png"))); // NOI18N
+        btnAgregar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnAgregar.setBorderPainted(false);
+        btnAgregar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnTAgregarActionPerformed(evt);
+                btnAgregarActionPerformed(evt);
             }
         });
-        bg.add(btnTAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 90, 80));
+        bg.add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 90, 80));
 
         btnActualizar.setBackground(new java.awt.Color(204, 204, 204));
         btnActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/actualizar.png"))); // NOI18N
@@ -100,6 +128,11 @@ public class frmUsuario extends javax.swing.JDialog {
                 btnBuscarActionPerformed(evt);
             }
         });
+        btnBuscar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                btnBuscarKeyReleased(evt);
+            }
+        });
         bg.add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, 90, 80));
 
         jLabelBuscar.setBackground(new java.awt.Color(0, 0, 0));
@@ -124,7 +157,7 @@ public class frmUsuario extends javax.swing.JDialog {
         jLabelEliminar.setText("Eliminar");
         bg.add(jLabelEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 360, 80, 30));
 
-        btnlimpiar.setBackground(new java.awt.Color(51, 51, 51));
+        btnlimpiar.setBackground(new java.awt.Color(204, 204, 204));
         btnlimpiar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/limpiar.png"))); // NOI18N
         btnlimpiar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnlimpiar.setBorderPainted(false);
@@ -135,7 +168,6 @@ public class frmUsuario extends javax.swing.JDialog {
             }
         });
         bg.add(btnlimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 420, 90, 80));
-        btnlimpiar.getAccessibleContext().setAccessibleParent(null);
 
         jLabelLimpiar.setBackground(new java.awt.Color(0, 0, 0));
         jLabelLimpiar.setForeground(new java.awt.Color(0, 0, 0));
@@ -157,21 +189,33 @@ public class frmUsuario extends javax.swing.JDialog {
         jLabelCodigo.setForeground(new java.awt.Color(0, 0, 0));
         jLabelCodigo.setText("Contraseña");
         bg.add(jLabelCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 80, 60, -1));
+
+        txtBuscarID.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtBuscarIDKeyReleased(evt);
+            }
+        });
         bg.add(txtBuscarID, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 60, 120, -1));
 
         jLabelID2.setForeground(new java.awt.Color(0, 0, 0));
         jLabelID2.setText("ID");
         bg.add(jLabelID2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 20, 30, -1));
+
+        txtNombreUsuario.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtNombreUsuarioKeyReleased(evt);
+            }
+        });
         bg.add(txtNombreUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 50, 120, -1));
 
         jLabelBuscarPor.setForeground(new java.awt.Color(0, 0, 0));
         jLabelBuscarPor.setText("Buscar por:");
         bg.add(jLabelBuscarPor, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 40, 80, -1));
-        bg.add(txtContrasenia1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 80, 120, -1));
+        bg.add(txtContrasenia, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 80, 120, -1));
 
-        jTable1.setBackground(new java.awt.Color(204, 204, 204));
-        jTable1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblTabla.setBackground(new java.awt.Color(204, 204, 204));
+        tblTabla.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        tblTabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -185,14 +229,27 @@ public class frmUsuario extends javax.swing.JDialog {
             Class[] types = new Class [] {
                 java.lang.Integer.class, java.lang.String.class, java.lang.String.class
             };
+            boolean[] canEdit = new boolean [] {
+                false, true, true
+            };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tblTabla);
+        if (tblTabla.getColumnModel().getColumnCount() > 0) {
+            tblTabla.getColumnModel().getColumn(0).setResizable(false);
+            tblTabla.getColumnModel().getColumn(1).setResizable(false);
+            tblTabla.getColumnModel().getColumn(2).setResizable(false);
+        }
 
         bg.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 130, 590, 370));
+        bg.add(txtId, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 20, 120, 20));
 
         jLabelFondo2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo4.jpg"))); // NOI18N
         jLabelFondo2.setText("jLabel2");
@@ -212,75 +269,164 @@ public class frmUsuario extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnTAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTAgregarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnTAgregarActionPerformed
+    
+    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
+        
+        agregar();
+    }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
-        // TODO add your handling code here:
+        
+        actualizar();
     }//GEN-LAST:event_btnActualizarActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        // TODO add your handling code here:
+        try {
+            consultar();
+        } catch (SQLException ex) {
+            Logger.getLogger(frmUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        // TODO add your handling code here:
+        int fila = this.tblTabla.getSelectedRow();
+        if (fila >= 0) {
+            int id = (int) this.tblTabla.getValueAt(fila, 0);
+            if (id > 0) {
+                int option = JOptionPane.showConfirmDialog(this, "¿ Desea eliminar el usuario con Id ? " + id);
+                if (option == 0) {
+                    try {
+                        eliminar(id);
+                    } catch (SQLException ex) {
+                        Logger.getLogger(frmUsuario.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    JOptionPane.showMessageDialog(this, " El usuario con ID " + id + " ha sido eliminado exitosamente ");
+                }
+            } else {
+                JOptionPane.showMessageDialog(this, "Por favor seleccione el usuario que desea eliminar de la tabla");
+            }
+        }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnlimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnlimpiarActionPerformed
-        // TODO add your handling code here:
+        limpiarFormulario();
     }//GEN-LAST:event_btnlimpiarActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(frmUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(frmUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(frmUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(frmUsuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
+    private void btnBuscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnBuscarKeyReleased
 
-        /* Create and display the dialog */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                frmUsuario dialog = new frmUsuario(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
-            }
+    }//GEN-LAST:event_btnBuscarKeyReleased
+
+    private void txtNombreUsuarioKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreUsuarioKeyReleased
+        btnAgregar.setEnabled(!txtNombreUsuario.getText().trim().isEmpty());
+    }//GEN-LAST:event_txtNombreUsuarioKeyReleased
+
+    private void txtBuscarIDKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarIDKeyReleased
+        btnBuscar.setEnabled(!txtBuscarID.getText().trim().isEmpty());
+    }//GEN-LAST:event_txtBuscarIDKeyReleased
+
+    private void eliminar(int id) throws SQLException {
+        
+        usuarioController.eliminar(id);
+        this.limpiarFormulario();
+        listar();
+        JOptionPane.showMessageDialog(this, "Registro eliminado exitosamente");
+        inicializarBotonera();
+    }
+
+    private void actualizar() {
+        int id = Integer.parseInt(txtId.getText());
+        String nombre_usuario = txtNombreUsuario.getText();
+        String contrasenia = txtContrasenia.getText();
+        Usuario usuario = new Usuario(id,nombre_usuario,contrasenia);
+        try {
+            usuarioController.actualizar(usuario);
+            JOptionPane.showMessageDialog(this, "Registro Actualizado");
+            listar();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    private void consultar() throws SQLException {
+        int id = Integer.parseInt(txtBuscarID.getText());
+        usuario = usuarioController.consultar(id);
+        if (usuario == null) {
+            JOptionPane.showMessageDialog(this, "ID NO ENCONTRADO");
+        } else {
+            txtId.setText(String.valueOf(usuario.getId_usuario()));
+            txtNombreUsuario.setText(usuario.getNombre_usuario());
+            txtContrasenia.setText(usuario.getContrasenia());
+            btnActualizar.setEnabled(true);
+            btnEliminar.setEnabled(true);
+            btnAgregar.setEnabled(false);
+        }
+    }
+
+    private void limpiarFormulario() {
+        txtId.setText("");
+        txtNombreUsuario.setText("");
+        txtContrasenia.setText("");
+        txtBuscarID.setText("");
+        inicializarBotonera();
+    }
+
+    private void inicializarBotonera() {
+        btnAgregar.setEnabled(false);
+        btnBuscar.setEnabled(false);
+        
+        if(this.tblTabla.getSelectedRow()>0 || this.tblTabla.getRowCount()>0){
+            btnActualizar.setEnabled(true);
+            btnEliminar.setEnabled(true);
+        }else{
+            btnActualizar.setEnabled(false);
+            btnEliminar.setEnabled(false);
+        }
+    }
+
+    private boolean validarVacios() {
+        boolean validado = false;
+        if ((!txtNombreUsuario.getText().trim().isEmpty()) && (!txtContrasenia.getText().trim().isEmpty())) {
+            validado = true;
+        }
+        return validado;
+    }
+
+    private void agregar() {
+
+        String nombre = txtNombreUsuario.getText();
+        String contrasenia = txtContrasenia.getText();
+        Usuario usuario = new Usuario(0, nombre, contrasenia);
+        try {
+            usuarioController.agregar(usuario);
+            JOptionPane.showMessageDialog(this, "Registro agregado");
+            listar();
+            limpiarFormulario();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    /*public void limpiarTabla(){         
+      int filasTabla = tableModel.getRowCount();  
+      for (int i=0; i < filasTabla; i++){           
+          tableModel.removeRow(0);  
+      }  
+    }  */
+    public void listar() throws SQLException {
+        tableModel.setRowCount(0); // Limpiar la tabla
+        List<Usuario> listado = usuarioController.listar();
+        listado.forEach((usuario) -> {
+            tableModel.addRow(new Object[]{usuario.getId_usuario(), usuario.getNombre_usuario(), usuario.getContrasenia()});
         });
     }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel bg;
     private javax.swing.JButton btnActualizar;
+    private javax.swing.JButton btnAgregar;
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnEliminar;
-    private javax.swing.JButton btnTAgregar;
     private javax.swing.JButton btnlimpiar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelActualizar;
@@ -295,9 +441,10 @@ public class frmUsuario extends javax.swing.JDialog {
     private javax.swing.JLabel jLabelLimpiar;
     private javax.swing.JLabel jLabelNombre;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tblTabla;
     private javax.swing.JTextField txtBuscarID;
-    private javax.swing.JTextField txtContrasenia1;
+    private javax.swing.JTextField txtContrasenia;
+    private javax.swing.JTextField txtId;
     private javax.swing.JTextField txtNombreUsuario;
     // End of variables declaration//GEN-END:variables
 }

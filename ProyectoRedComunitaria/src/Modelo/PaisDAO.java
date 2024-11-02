@@ -27,7 +27,7 @@ public class PaisDAO {
     }
     
     public void agregar(Pais pais) throws SQLException {
-        String query = "INSERT INTO pais (nombre,estado,poblacion,ciudad,region,latitud,longitud,califiacion_riesgo,tasa_impuesto) VALUES (?,?,?,?,?,?,?,?,?)";
+        String query = "INSERT INTO pais (nombre,estado,poblacion,ciudad,region,latitud,longitud,calificacion_riesgo,tasa_impuesto) VALUES (?,?,?,?,?,?,?,?,?)";
         PreparedStatement ps = connection.prepareStatement(query);
         ps.setString(1, pais.getNombre());
         ps.setString(2, pais.getEstado());
@@ -67,7 +67,7 @@ public class PaisDAO {
     }
     
     public void actualizar(Pais pais) throws SQLException {
-        String query = "UPDATE pais SET nombre=?,estado=?,poblacion=?,ciudad=?,region=?,latitud=?,longitud=?,califiacion_riesgo=?,tasa_impuesto=? WHERE id_pais = ?";
+        String query = "UPDATE pais SET nombre=?,estado=?,poblacion=?,ciudad=?,region=?,latitud=?,longitud=?,calificacion_riesgo=?,tasa_impuesto=? WHERE id_pais = ?";
         PreparedStatement ps = connection.prepareStatement(query);
         ps.setString(1, pais.getNombre());
         ps.setString(2, pais.getEstado());
@@ -93,7 +93,7 @@ public class PaisDAO {
     
     public List<Pais> listar() throws SQLException {
         List<Pais> lista = new ArrayList<>();
-        String query = "SELECT * FROM usuario";
+        String query = "SELECT * FROM pais";
         Statement st = connection.createStatement();
         ResultSet rs = st.executeQuery(query);
 

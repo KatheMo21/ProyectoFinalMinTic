@@ -4,6 +4,10 @@
  */
 package Vista;
 
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author FELIPE
@@ -29,10 +33,10 @@ public class Principal extends javax.swing.JFrame {
         escEscritorio = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         IngInformacion = new javax.swing.JMenu();
-        jMenuUsuario = new javax.swing.JMenuItem();
-        jMenuPais = new javax.swing.JMenuItem();
-        jMenuEmprendedor = new javax.swing.JMenuItem();
-        jMenuProyecto = new javax.swing.JMenuItem();
+        itmUsuario = new javax.swing.JMenuItem();
+        itmPais = new javax.swing.JMenuItem();
+        itmEmprendedor = new javax.swing.JMenuItem();
+        itmProyecto = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -50,17 +54,32 @@ public class Principal extends javax.swing.JFrame {
 
         IngInformacion.setText("Ingresar Información");
 
-        jMenuUsuario.setText("Usuarios");
-        IngInformacion.add(jMenuUsuario);
+        itmUsuario.setText("Usuarios");
+        itmUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itmUsuarioActionPerformed(evt);
+            }
+        });
+        IngInformacion.add(itmUsuario);
 
-        jMenuPais.setText("Paises");
-        IngInformacion.add(jMenuPais);
+        itmPais.setText("Paises");
+        itmPais.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itmPaisActionPerformed(evt);
+            }
+        });
+        IngInformacion.add(itmPais);
 
-        jMenuEmprendedor.setText("Emprendedores");
-        IngInformacion.add(jMenuEmprendedor);
+        itmEmprendedor.setText("Emprendedores");
+        itmEmprendedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itmEmprendedorActionPerformed(evt);
+            }
+        });
+        IngInformacion.add(itmEmprendedor);
 
-        jMenuProyecto.setText("Proyectos");
-        IngInformacion.add(jMenuProyecto);
+        itmProyecto.setText("Proyectos");
+        IngInformacion.add(itmProyecto);
 
         jMenuBar1.add(IngInformacion);
 
@@ -84,6 +103,40 @@ public class Principal extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void itmUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmUsuarioActionPerformed
+        frmUsuario frmUsuario = null;
+        try {
+            frmUsuario = new frmUsuario();
+        } catch (SQLException ex) {
+            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        escEscritorio.add(frmUsuario);
+        frmUsuario.show();
+    }//GEN-LAST:event_itmUsuarioActionPerformed
+
+    private void itmPaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmPaisActionPerformed
+        frmPais frmPais = null;
+        try {
+            frmPais = new frmPais();
+        } catch (SQLException ex) {
+            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        escEscritorio.add(frmPais);
+        frmPais.show();
+        
+    }//GEN-LAST:event_itmPaisActionPerformed
+
+    private void itmEmprendedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmEmprendedorActionPerformed
+        frmEmprendedor frmEmprendedor = null;
+        try {
+            frmEmprendedor = new frmEmprendedor();
+        } catch (SQLException ex) {
+            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        escEscritorio.add(frmEmprendedor);
+        frmEmprendedor.show();
+    }//GEN-LAST:event_itmEmprendedorActionPerformed
 
     /**
      * @param args the command line arguments
@@ -124,11 +177,11 @@ public class Principal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu IngInformacion;
     private javax.swing.JDesktopPane escEscritorio;
+    private javax.swing.JMenuItem itmEmprendedor;
+    private javax.swing.JMenuItem itmPais;
+    private javax.swing.JMenuItem itmProyecto;
+    private javax.swing.JMenuItem itmUsuario;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuEmprendedor;
-    private javax.swing.JMenuItem jMenuPais;
-    private javax.swing.JMenuItem jMenuProyecto;
-    private javax.swing.JMenuItem jMenuUsuario;
     // End of variables declaration//GEN-END:variables
 }

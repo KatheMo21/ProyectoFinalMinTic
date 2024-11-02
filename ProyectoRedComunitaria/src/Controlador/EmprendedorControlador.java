@@ -36,4 +36,8 @@ public class EmprendedorControlador {
     public List<Emprendedor> listar() throws SQLException {
         return emprendedorDAO.listar();
     }
+    
+    public List<Integer> listarPaises() throws SQLException {
+        return emprendedorDAO.listarPaises();
+    }
 }
