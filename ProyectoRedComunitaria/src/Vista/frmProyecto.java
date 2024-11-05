@@ -478,7 +478,7 @@ public class frmProyecto extends javax.swing.JInternalFrame {
         double avaluo = Double.parseDouble(txtAvaluo.getText());
         
         
-        Proyecto proyecto = new Proyecto(0,id_emprendedor,id_pais,nombre,sector,avaluo);
+        Proyecto proyecto = new Proyecto(id,id_emprendedor,id_pais,nombre,sector,avaluo);
         try {
             proyectoController.actualizar(proyecto);
             JOptionPane.showMessageDialog(this, "Registro Actualizado");
@@ -584,11 +584,11 @@ public class frmProyecto extends javax.swing.JInternalFrame {
         }
     }
     
-    public void listar_emprendedores(List<Integer> listado_usuarios,JComboBox c) throws SQLException{
+    public void listar_emprendedores(List<Integer> listado_emprendedores,JComboBox c) throws SQLException{
         DefaultComboBoxModel combo=new DefaultComboBoxModel();
         c.setModel(combo);
-        for (int i = 0; i < listado_usuarios.size(); i++) {
-            combo.addElement(listado_usuarios.get(i));
+        for (int i = 0; i < listado_emprendedores.size(); i++) {
+            combo.addElement(listado_emprendedores.get(i));
             
         }
     }
