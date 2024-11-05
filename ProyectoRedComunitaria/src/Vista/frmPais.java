@@ -85,6 +85,7 @@ public class frmPais extends javax.swing.JInternalFrame {
         txtLongitud = new javax.swing.JTextField();
         txtCalificacion = new javax.swing.JTextField();
         txtLatitud = new javax.swing.JTextField();
+        btnCerrar = new javax.swing.JButton();
         jLabelID6 = new javax.swing.JLabel();
         jLabelFondo2 = new javax.swing.JLabel();
         jLabelFondo3 = new javax.swing.JLabel();
@@ -251,7 +252,7 @@ public class frmPais extends javax.swing.JInternalFrame {
         });
         jScrollPane1.setViewportView(tblTabla);
 
-        bg.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 130, 910, 370));
+        bg.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 130, 910, 370));
         bg.add(txtId, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 20, 120, 20));
 
         jLabelID3.setForeground(new java.awt.Color(0, 0, 0));
@@ -297,13 +298,21 @@ public class frmPais extends javax.swing.JInternalFrame {
         bg.add(txtCalificacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 80, 120, -1));
         bg.add(txtLatitud, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 20, 120, 20));
 
+        btnCerrar.setText("Cerrar");
+        btnCerrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCerrarActionPerformed(evt);
+            }
+        });
+        bg.add(btnCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 540, -1, -1));
+
         jLabelID6.setForeground(new java.awt.Color(0, 0, 0));
         jLabelID6.setText("Latitud");
         bg.add(jLabelID6, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 20, 60, -1));
 
         jLabelFondo2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo4.jpg"))); // NOI18N
         jLabelFondo2.setText("jLabel2");
-        bg.add(jLabelFondo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 0, 950, 590));
+        bg.add(jLabelFondo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 0, 970, 590));
 
         jLabelFondo3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo4.jpg"))); // NOI18N
         jLabelFondo3.setText("jLabel2");
@@ -389,6 +398,10 @@ public class frmPais extends javax.swing.JInternalFrame {
     private void txtLongitudKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtLongitudKeyReleased
         // TODO add your handling code here:
     }//GEN-LAST:event_txtLongitudKeyReleased
+
+    private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btnCerrarActionPerformed
 
     private void eliminar(int id) throws SQLException {
         
@@ -521,6 +534,7 @@ public class frmPais extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnActualizar;
     private javax.swing.JButton btnAgregar;
     private javax.swing.JButton btnBuscar;
+    private javax.swing.JButton btnCerrar;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnlimpiar;
     private javax.swing.JLabel jLabel1;

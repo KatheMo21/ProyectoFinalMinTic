@@ -70,6 +70,7 @@ public class frmUsuario extends javax.swing.JInternalFrame {
         jLabelID1 = new javax.swing.JLabel();
         jLabelCodigo = new javax.swing.JLabel();
         txtBuscarID = new javax.swing.JTextField();
+        btnCerrar = new javax.swing.JButton();
         jLabelID2 = new javax.swing.JLabel();
         txtNombreUsuario = new javax.swing.JTextField();
         jLabelBuscarPor = new javax.swing.JLabel();
@@ -78,8 +79,6 @@ public class frmUsuario extends javax.swing.JInternalFrame {
         tblTabla = new javax.swing.JTable();
         txtId = new javax.swing.JTextField();
         jLabelFondo2 = new javax.swing.JLabel();
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         bg.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -180,7 +179,7 @@ public class frmUsuario extends javax.swing.JInternalFrame {
 
         jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo.jpg"))); // NOI18N
         jLabelFondo.setText("jLabel1");
-        bg.add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 210, 540));
+        bg.add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 210, 570));
 
         jLabelID1.setForeground(new java.awt.Color(0, 0, 0));
         jLabelID1.setText("ID");
@@ -196,6 +195,14 @@ public class frmUsuario extends javax.swing.JInternalFrame {
             }
         });
         bg.add(txtBuscarID, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 60, 120, -1));
+
+        btnCerrar.setText("Cerrar");
+        btnCerrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCerrarActionPerformed(evt);
+            }
+        });
+        bg.add(btnCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 530, -1, -1));
 
         jLabelID2.setForeground(new java.awt.Color(0, 0, 0));
         jLabelID2.setText("ID");
@@ -253,7 +260,7 @@ public class frmUsuario extends javax.swing.JInternalFrame {
 
         jLabelFondo2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo4.jpg"))); // NOI18N
         jLabelFondo2.setText("jLabel2");
-        bg.add(jLabelFondo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 0, 700, 540));
+        bg.add(jLabelFondo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 0, 750, 570));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -323,6 +330,10 @@ public class frmUsuario extends javax.swing.JInternalFrame {
     private void txtBuscarIDKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarIDKeyReleased
         btnBuscar.setEnabled(!txtBuscarID.getText().trim().isEmpty());
     }//GEN-LAST:event_txtBuscarIDKeyReleased
+
+    private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btnCerrarActionPerformed
 
     private void eliminar(int id) throws SQLException {
         
@@ -426,6 +437,7 @@ public class frmUsuario extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnActualizar;
     private javax.swing.JButton btnAgregar;
     private javax.swing.JButton btnBuscar;
+    private javax.swing.JButton btnCerrar;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnlimpiar;
     private javax.swing.JLabel jLabel1;

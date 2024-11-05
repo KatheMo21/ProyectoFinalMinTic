@@ -41,4 +41,12 @@ public class ProyectoControlador {
     public List<Proyecto> listar() throws SQLException {
         return proyectoDAO.listar();
     }
+    
+    public List<Integer> listarPaises() throws SQLException {
+        return proyectoDAO.listarPaises();
+    }
+    
+    public List<Integer> listarEmprendedores() throws SQLException {
+        return proyectoDAO.listarEmprendedores();
+    }
 }

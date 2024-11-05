@@ -137,4 +137,19 @@ public class EmprendedorDAO {
         st.close();
         return listaIdPaises;
     }
+    
+    public List<Integer> listarUsuarios() throws SQLException {
+        List<Integer> listaIdUsuario = new ArrayList<>();
+        String query = "SELECT id_usuario FROM usuario";
+        Statement st = connection.createStatement();
+        ResultSet rs = st.executeQuery(query);
+
+        while (rs.next()) {
+            
+            listaIdUsuario.add(rs.getInt("id_usuario"));
+        }
+        rs.close();
+        st.close();
+        return listaIdUsuario;
+    }
 }

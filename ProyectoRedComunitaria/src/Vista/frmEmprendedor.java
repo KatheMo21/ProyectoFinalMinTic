@@ -12,12 +12,17 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.List;
+import java.util.Set;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-/**
+/**private EmprendedorControlador emprendedorController;
+    //private PaisControlador paisController;
+    private static Emprendedor emprendedor = new Emprendedor();
+    private List<Emprendedor> listaEmprendedor;
+    DefaultTableModel tableModel = new DefaultTableModel();
  *
  * @author FELIPE
  */
@@ -41,7 +46,8 @@ public class frmEmprendedor extends javax.swing.JInternalFrame {
         listar(); //entra cargando la tabla pais de la base de datos
 
         inicializarBotonera();
-        listar_paises(emprendedorController.listarPaises(),jComboBox1);
+        listar_paises(emprendedorController.listarPaises(),jComboIdPais);
+        listar_usuarios(emprendedorController.listarUsuarios(),jComboIdUsuario);
     }
 
     /**
@@ -72,8 +78,6 @@ public class frmEmprendedor extends javax.swing.JInternalFrame {
         jLabelNombre = new javax.swing.JLabel();
         jLabelCodigo = new javax.swing.JLabel();
         txtId = new javax.swing.JTextField();
-        txtIDPN = new javax.swing.JTextField();
-        txtIDU = new javax.swing.JTextField();
         jLabelID5 = new javax.swing.JLabel();
         jLabelNombre2 = new javax.swing.JLabel();
         jLabelCodigo2 = new javax.swing.JLabel();
@@ -87,7 +91,9 @@ public class frmEmprendedor extends javax.swing.JInternalFrame {
         txtAnioNacimiento = new javax.swing.JTextField();
         txtProfesion = new javax.swing.JTextField();
         txtMesNacimiento = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jComboIdPais = new javax.swing.JComboBox<>();
+        jComboIdUsuario = new javax.swing.JComboBox<>();
+        btnCerrar = new javax.swing.JButton();
         jLabelID3 = new javax.swing.JLabel();
         jLabelFondo = new javax.swing.JLabel();
         jLabelFondo2 = new javax.swing.JLabel();
@@ -245,14 +251,6 @@ public class frmEmprendedor extends javax.swing.JInternalFrame {
         getContentPane().add(jLabelCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 80, 60, -1));
         getContentPane().add(txtId, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 20, 120, 20));
 
-        txtIDPN.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtIDPNKeyReleased(evt);
-            }
-        });
-        getContentPane().add(txtIDPN, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 50, 120, -1));
-        getContentPane().add(txtIDU, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 80, 120, -1));
-
         jLabelID5.setForeground(new java.awt.Color(0, 0, 0));
         jLabelID5.setText("Nombre");
         getContentPane().add(jLabelID5, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 20, 60, -1));
@@ -296,7 +294,17 @@ public class frmEmprendedor extends javax.swing.JInternalFrame {
         getContentPane().add(txtProfesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 50, 120, -1));
         getContentPane().add(txtMesNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 80, 80, 20));
 
-        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 20, 120, -1));
+        getContentPane().add(jComboIdPais, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 50, 120, -1));
+
+        getContentPane().add(jComboIdUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 80, 120, -1));
+
+        btnCerrar.setText("Cerrar");
+        btnCerrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCerrarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 540, -1, -1));
 
         jLabelID3.setForeground(new java.awt.Color(0, 0, 0));
         jLabelID3.setText("Mes nacimiento");
@@ -363,10 +371,6 @@ public class frmEmprendedor extends javax.swing.JInternalFrame {
         btnBuscar.setEnabled(!txtBuscarID.getText().trim().isEmpty());
     }//GEN-LAST:event_txtBuscarIDKeyReleased
 
-    private void txtIDPNKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtIDPNKeyReleased
-        btnAgregar.setEnabled(!txtIDPN.getText().trim().isEmpty());
-    }//GEN-LAST:event_txtIDPNKeyReleased
-
     private void txtApellidoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtApellidoKeyReleased
         // TODO add your handling code here:
     }//GEN-LAST:event_txtApellidoKeyReleased
@@ -374,6 +378,10 @@ public class frmEmprendedor extends javax.swing.JInternalFrame {
     private void txtProfesionKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtProfesionKeyReleased
         // TODO add your handling code here:
     }//GEN-LAST:event_txtProfesionKeyReleased
+
+    private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btnCerrarActionPerformed
 
     private void eliminar(int id) throws SQLException {
         
@@ -386,8 +394,8 @@ public class frmEmprendedor extends javax.swing.JInternalFrame {
 
     private void actualizar() {
         int id = Integer.parseInt(txtId.getText());
-        int id_pais = Integer.parseInt(txtIDPN.getText());
-        int id_usuario = Integer.parseInt(txtIDU.getText());
+        int id_pais = (int) (jComboIdPais.getSelectedItem());
+        int id_usuario = (int) (jComboIdUsuario.getSelectedItem());
         String nombre = txtNombre.getText();
         String apellido = txtApellido.getText();
         String edad = txtEdad.getText();
@@ -413,8 +421,8 @@ public class frmEmprendedor extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(this, "ID NO ENCONTRADO");
         } else {
             txtId.setText(String.valueOf(emprendedor.getId_emprendedor()));
-            txtIDPN.setText(String.valueOf(emprendedor.getId_pais_nacimiento()));
-            txtIDU.setText(String.valueOf(emprendedor.getId_usuario()));
+            jComboIdPais.setSelectedItem(emprendedor.getId_pais_nacimiento());
+            jComboIdUsuario.setSelectedItem(emprendedor.getId_usuario());
             txtNombre.setText(emprendedor.getNombre());
             txtApellido.setText(emprendedor.getApellido());
             txtEdad.setText(emprendedor.getEdad());
@@ -430,8 +438,8 @@ public class frmEmprendedor extends javax.swing.JInternalFrame {
 
     private void limpiarFormulario() {
         txtId.setText("");
-        txtIDPN.setText("");
-        txtIDU.setText("");
+//        jComboIdPais.setText("");
+//        jComboIdUsuario.setText("");
         txtNombre.setText("");
         txtApellido.setText("");
         txtEdad.setText("");
@@ -458,7 +466,7 @@ public class frmEmprendedor extends javax.swing.JInternalFrame {
 
     private boolean validarVacios() {
         boolean validado = false;
-        if ((!txtIDPN.getText().trim().isEmpty()) && (!txtIDU.getText().trim().isEmpty())&& (!txtNombre.getText().trim().isEmpty())&& (!txtApellido.getText().trim().isEmpty())&& (!txtEdad.getText().trim().isEmpty())&& (!txtGenero.getText().trim().isEmpty())&& (!txtProfesion.getText().trim().isEmpty())&& (!txtAnioNacimiento.getText().trim().isEmpty())&& (!txtMesNacimiento.getText().trim().isEmpty())) {
+        if ((!txtNombre.getText().trim().isEmpty())&& (!txtApellido.getText().trim().isEmpty())&& (!txtEdad.getText().trim().isEmpty())&& (!txtGenero.getText().trim().isEmpty())&& (!txtProfesion.getText().trim().isEmpty())&& (!txtAnioNacimiento.getText().trim().isEmpty())&& (!txtMesNacimiento.getText().trim().isEmpty())) {
             validado = true;
         }
         return validado;
@@ -467,8 +475,8 @@ public class frmEmprendedor extends javax.swing.JInternalFrame {
     private void agregar() {
 
         
-        int id_pais = Integer.parseInt(txtIDPN.getText());
-        int id_usuario = Integer.parseInt(txtIDU.getText());
+        int id_pais = (int)(jComboIdPais.getSelectedItem());
+        int id_usuario = (int)(jComboIdUsuario.getSelectedItem());
         String nombre = txtNombre.getText();
         String apellido = txtApellido.getText();
         String edad = txtEdad.getText();
@@ -507,7 +515,16 @@ public class frmEmprendedor extends javax.swing.JInternalFrame {
         c.setModel(combo);
         for (int i = 0; i < listado_paises.size(); i++) {
             combo.addElement(listado_paises.get(i));
-            System.out.println(listado_paises.get(i)+"en el frmEmprendedor");
+            
+        }
+    }
+    
+    public void listar_usuarios(List<Integer> listado_usuarios,JComboBox c) throws SQLException{
+        DefaultComboBoxModel combo=new DefaultComboBoxModel();
+        c.setModel(combo);
+        for (int i = 0; i < listado_usuarios.size(); i++) {
+            combo.addElement(listado_usuarios.get(i));
+            
         }
     }
 
@@ -515,9 +532,11 @@ public class frmEmprendedor extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnActualizar;
     private javax.swing.JButton btnAgregar;
     private javax.swing.JButton btnBuscar;
+    private javax.swing.JButton btnCerrar;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnlimpiar;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboIdPais;
+    private javax.swing.JComboBox<String> jComboIdUsuario;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelActualizar;
     private javax.swing.JLabel jLabelBuscar;
@@ -544,8 +563,6 @@ public class frmEmprendedor extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtBuscarID;
     private javax.swing.JTextField txtEdad;
     private javax.swing.JTextField txtGenero;
-    private javax.swing.JTextField txtIDPN;
-    private javax.swing.JTextField txtIDU;
     private javax.swing.JTextField txtId;
     private javax.swing.JTextField txtMesNacimiento;
     private javax.swing.JTextField txtNombre;

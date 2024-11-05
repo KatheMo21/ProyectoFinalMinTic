@@ -40,4 +40,8 @@ public class EmprendedorControlador {
     public List<Integer> listarPaises() throws SQLException {
         return emprendedorDAO.listarPaises();
     }
+    
+    public List<Integer> listarUsuarios() throws SQLException {
+        return emprendedorDAO.listarUsuarios();
+    }
 }

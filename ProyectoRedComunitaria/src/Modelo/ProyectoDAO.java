@@ -102,4 +102,34 @@ public class ProyectoDAO {
         st.close();
         return lista;
     }
+    
+    public List<Integer> listarPaises() throws SQLException {
+        List<Integer> listaIdPaises = new ArrayList<>();
+        String query = "SELECT id_pais FROM pais";
+        Statement st = connection.createStatement();
+        ResultSet rs = st.executeQuery(query);
+
+        while (rs.next()) {
+            
+            listaIdPaises.add(rs.getInt("id_pais"));
+        }
+        rs.close();
+        st.close();
+        return listaIdPaises;
+    }
+    
+    public List<Integer> listarEmprendedores() throws SQLException {
+        List<Integer> listaIdUsuario = new ArrayList<>();
+        String query = "SELECT id_emprendedor FROM emprendedor";
+        Statement st = connection.createStatement();
+        ResultSet rs = st.executeQuery(query);
+
+        while (rs.next()) {
+            
+            listaIdUsuario.add(rs.getInt("id_emprendedor"));
+        }
+        rs.close();
+        st.close();
+        return listaIdUsuario;
+    }
 }
