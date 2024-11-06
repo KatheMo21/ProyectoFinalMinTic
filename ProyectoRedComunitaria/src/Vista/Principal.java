@@ -43,8 +43,13 @@ public class Principal extends javax.swing.JFrame {
         ItmGestionInformación = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1366, 768));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondoazul.jpg"))); // NOI18N
+        escEscritorio.setPreferredSize(new java.awt.Dimension(1366, 768));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondoPaginaPrincipal.png"))); // NOI18N
+        jLabel1.setMaximumSize(new java.awt.Dimension(14000, 729));
+        jLabel1.setPreferredSize(new java.awt.Dimension(1366, 800));
 
         escEscritorio.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
@@ -59,8 +64,11 @@ public class Principal extends javax.swing.JFrame {
         );
         escEscritorioLayout.setVerticalGroup(
             escEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 768, Short.MAX_VALUE)
         );
+
+        jMenuBar1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jMenuBar1.setPreferredSize(new java.awt.Dimension(250, 30));
 
         IngInformacion.setText("Ingresar Información");
 

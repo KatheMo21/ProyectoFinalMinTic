@@ -9,6 +9,7 @@ import Clases.Proyecto;
 import Controlador.GestionControlador;
 import Controlador.ProyectoControlador;
 import java.sql.SQLException;
+import java.text.MessageFormat;
 import java.util.List;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
@@ -16,6 +17,10 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.print.attribute.HashPrintRequestAttributeSet;
+import javax.print.attribute.PrintRequestAttributeSet;
+import javax.print.attribute.standard.OrientationRequested;
+import javax.swing.JTable;
 
 /**
  *
@@ -67,7 +72,6 @@ public class frmGestionInformacion extends javax.swing.JInternalFrame {
         jLabelLimpiar = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblTabla = new javax.swing.JTable();
-        jLabelFondo = new javax.swing.JLabel();
         txtId = new javax.swing.JTextField();
         jComboIdProyecto = new javax.swing.JComboBox<>();
         jComboIdEmprendedor = new javax.swing.JComboBox<>();
@@ -80,11 +84,14 @@ public class frmGestionInformacion extends javax.swing.JInternalFrame {
         jLabelID1 = new javax.swing.JLabel();
         txtBuscarID = new javax.swing.JTextField();
         btnCerrar = new javax.swing.JButton();
+        btnPdf = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
         jLabelFondo2 = new javax.swing.JLabel();
 
+        setPreferredSize(new java.awt.Dimension(1366, 768));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnAgregar.setBackground(new java.awt.Color(204, 204, 204));
+        btnAgregar.setBackground(new java.awt.Color(140, 82, 255));
         btnAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/agregar.png"))); // NOI18N
         btnAgregar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnAgregar.setBorderPainted(false);
@@ -97,11 +104,12 @@ public class frmGestionInformacion extends javax.swing.JInternalFrame {
         getContentPane().add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 90, 80));
 
         jLabel1.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Agregar");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 60, 80, 30));
 
-        btnActualizar.setBackground(new java.awt.Color(204, 204, 204));
+        btnActualizar.setBackground(new java.awt.Color(140, 82, 255));
         btnActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/actualizar.png"))); // NOI18N
         btnActualizar.setAlignmentY(0.0F);
         btnActualizar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -115,11 +123,12 @@ public class frmGestionInformacion extends javax.swing.JInternalFrame {
         getContentPane().add(btnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 90, 80));
 
         jLabelActualizar.setBackground(new java.awt.Color(0, 0, 0));
-        jLabelActualizar.setForeground(new java.awt.Color(0, 0, 0));
+        jLabelActualizar.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 18)); // NOI18N
+        jLabelActualizar.setForeground(new java.awt.Color(255, 255, 255));
         jLabelActualizar.setText("Actualizar");
         getContentPane().add(jLabelActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, 80, 30));
 
-        btnBuscar.setBackground(new java.awt.Color(204, 204, 204));
+        btnBuscar.setBackground(new java.awt.Color(140, 82, 255));
         btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/buscar.png"))); // NOI18N
         btnBuscar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnBuscar.setBorderPainted(false);
@@ -137,11 +146,12 @@ public class frmGestionInformacion extends javax.swing.JInternalFrame {
         getContentPane().add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, 90, 80));
 
         jLabelBuscar.setBackground(new java.awt.Color(0, 0, 0));
-        jLabelBuscar.setForeground(new java.awt.Color(0, 0, 0));
+        jLabelBuscar.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 18)); // NOI18N
+        jLabelBuscar.setForeground(new java.awt.Color(255, 255, 255));
         jLabelBuscar.setText("Buscar");
         getContentPane().add(jLabelBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 260, 80, 30));
 
-        btnEliminar.setBackground(new java.awt.Color(204, 204, 204));
+        btnEliminar.setBackground(new java.awt.Color(140, 82, 255));
         btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/eliminar.png"))); // NOI18N
         btnEliminar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnEliminar.setBorderPainted(false);
@@ -154,11 +164,12 @@ public class frmGestionInformacion extends javax.swing.JInternalFrame {
         getContentPane().add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 330, 90, 80));
 
         jLabelEliminar.setBackground(new java.awt.Color(0, 0, 0));
-        jLabelEliminar.setForeground(new java.awt.Color(0, 0, 0));
+        jLabelEliminar.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 18)); // NOI18N
+        jLabelEliminar.setForeground(new java.awt.Color(255, 255, 255));
         jLabelEliminar.setText("Eliminar");
         getContentPane().add(jLabelEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 360, 80, 30));
 
-        btnlimpiar.setBackground(new java.awt.Color(204, 204, 204));
+        btnlimpiar.setBackground(new java.awt.Color(140, 82, 255));
         btnlimpiar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/limpiar.png"))); // NOI18N
         btnlimpiar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnlimpiar.setBorderPainted(false);
@@ -171,11 +182,12 @@ public class frmGestionInformacion extends javax.swing.JInternalFrame {
         getContentPane().add(btnlimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 420, 90, 80));
 
         jLabelLimpiar.setBackground(new java.awt.Color(0, 0, 0));
-        jLabelLimpiar.setForeground(new java.awt.Color(0, 0, 0));
+        jLabelLimpiar.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 18)); // NOI18N
+        jLabelLimpiar.setForeground(new java.awt.Color(255, 255, 255));
         jLabelLimpiar.setText("Limpiar");
         getContentPane().add(jLabelLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 450, 80, 30));
 
-        tblTabla.setBackground(new java.awt.Color(204, 204, 204));
+        tblTabla.setBackground(new java.awt.Color(204, 204, 255));
         tblTabla.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         tblTabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -206,10 +218,6 @@ public class frmGestionInformacion extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(tblTabla);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 130, 1000, 370));
-
-        jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo.jpg"))); // NOI18N
-        jLabelFondo.setText("jLabel1");
-        getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 210, 590));
         getContentPane().add(txtId, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 10, 120, 30));
 
         getContentPane().add(jComboIdProyecto, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 72, 120, 30));
@@ -223,27 +231,33 @@ public class frmGestionInformacion extends javax.swing.JInternalFrame {
         });
         getContentPane().add(txtFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 70, 120, 30));
 
-        jLabelID3.setForeground(new java.awt.Color(0, 0, 0));
+        jLabelID3.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
+        jLabelID3.setForeground(new java.awt.Color(255, 255, 255));
         jLabelID3.setText("ID_gestion");
         getContentPane().add(jLabelID3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 20, 100, -1));
 
-        jLabelCodigo1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabelCodigo1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
+        jLabelCodigo1.setForeground(new java.awt.Color(255, 255, 255));
         jLabelCodigo1.setText("ID_proyecto");
         getContentPane().add(jLabelCodigo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 80, 90, -1));
 
-        jLabelNombre1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabelNombre1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
+        jLabelNombre1.setForeground(new java.awt.Color(255, 255, 255));
         jLabelNombre1.setText("ID_emprendedor");
         getContentPane().add(jLabelNombre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 20, 110, -1));
 
-        jLabelID6.setForeground(new java.awt.Color(0, 0, 0));
+        jLabelID6.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
+        jLabelID6.setForeground(new java.awt.Color(255, 255, 255));
         jLabelID6.setText("Fecha Generación");
         getContentPane().add(jLabelID6, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 80, 100, 20));
 
-        jLabelBuscarPor.setForeground(new java.awt.Color(0, 0, 0));
+        jLabelBuscarPor.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
+        jLabelBuscarPor.setForeground(new java.awt.Color(255, 255, 255));
         jLabelBuscarPor.setText("Buscar por:");
         getContentPane().add(jLabelBuscarPor, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 520, 80, -1));
 
-        jLabelID1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabelID1.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
+        jLabelID1.setForeground(new java.awt.Color(255, 255, 255));
         jLabelID1.setText("ID");
         getContentPane().add(jLabelID1, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 540, 30, -1));
 
@@ -254,17 +268,40 @@ public class frmGestionInformacion extends javax.swing.JInternalFrame {
         });
         getContentPane().add(txtBuscarID, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 540, 120, -1));
 
+        btnCerrar.setBackground(new java.awt.Color(204, 204, 255));
+        btnCerrar.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 14)); // NOI18N
+        btnCerrar.setForeground(new java.awt.Color(0, 0, 0));
         btnCerrar.setText("Cerrar");
+        btnCerrar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnCerrar.setBorderPainted(false);
         btnCerrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCerrarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 540, -1, -1));
+        getContentPane().add(btnCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 540, 70, 30));
 
-        jLabelFondo2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo4.jpg"))); // NOI18N
+        btnPdf.setBackground(new java.awt.Color(140, 82, 255));
+        btnPdf.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/pdf.png"))); // NOI18N
+        btnPdf.setAlignmentY(0.0F);
+        btnPdf.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnPdf.setBorderPainted(false);
+        btnPdf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPdfActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnPdf, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 510, 90, 90));
+
+        jLabel2.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Generar PDF");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 550, 120, -1));
+
+        jLabelFondo2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondoColoress.png"))); // NOI18N
         jLabelFondo2.setText("jLabel2");
-        getContentPane().add(jLabelFondo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 0, 1040, 590));
+        jLabelFondo2.setPreferredSize(new java.awt.Dimension(1366, 768));
+        getContentPane().add(jLabelFondo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1360, 730));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -326,6 +363,22 @@ public class frmGestionInformacion extends javax.swing.JInternalFrame {
     private void txtFechaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFechaKeyReleased
         btnAgregar.setEnabled(!txtFecha.getText().trim().isEmpty());
     }//GEN-LAST:event_txtFechaKeyReleased
+
+    private void btnPdfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPdfActionPerformed
+        MessageFormat header= new MessageFormat("Gestión de Informacion");
+        MessageFormat footer= new MessageFormat("Katherin Monroy Echeverry & Luis Felipe Alzate Osorio © 2024");
+        try{
+            PrintRequestAttributeSet set = new HashPrintRequestAttributeSet();
+            set.add(OrientationRequested.LANDSCAPE);
+            this.tblTabla.print(JTable.PrintMode.FIT_WIDTH,header,footer,true,set,true);
+            JOptionPane.showMessageDialog(this,"Impreso exitosamente");
+        }
+        catch(java.awt.print.PrinterException e){
+            JOptionPane.showMessageDialog(this,"Impresión fallida "+e);
+
+        }
+
+    }//GEN-LAST:event_btnPdfActionPerformed
 
     private void eliminar(int id) throws SQLException {
         
@@ -460,16 +513,17 @@ public class frmGestionInformacion extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnCerrar;
     private javax.swing.JButton btnEliminar;
+    private javax.swing.JButton btnPdf;
     private javax.swing.JButton btnlimpiar;
     private javax.swing.JComboBox<String> jComboIdEmprendedor;
     private javax.swing.JComboBox<String> jComboIdProyecto;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabelActualizar;
     private javax.swing.JLabel jLabelBuscar;
     private javax.swing.JLabel jLabelBuscarPor;
     private javax.swing.JLabel jLabelCodigo1;
     private javax.swing.JLabel jLabelEliminar;
-    private javax.swing.JLabel jLabelFondo;
     private javax.swing.JLabel jLabelFondo2;
     private javax.swing.JLabel jLabelID1;
     private javax.swing.JLabel jLabelID3;
