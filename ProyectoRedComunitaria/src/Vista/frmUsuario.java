@@ -175,7 +175,7 @@ public class frmUsuario extends javax.swing.JInternalFrame {
 
         jLabelNombre.setForeground(new java.awt.Color(0, 0, 0));
         jLabelNombre.setText("Nombre  Usuario");
-        bg.add(jLabelNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 50, 100, -1));
+        bg.add(jLabelNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 70, 100, -1));
 
         jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo.jpg"))); // NOI18N
         jLabelFondo.setText("jLabel1");
@@ -183,18 +183,18 @@ public class frmUsuario extends javax.swing.JInternalFrame {
 
         jLabelID1.setForeground(new java.awt.Color(0, 0, 0));
         jLabelID1.setText("ID");
-        bg.add(jLabelID1, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 60, 30, -1));
+        bg.add(jLabelID1, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 60, 30, -1));
 
         jLabelCodigo.setForeground(new java.awt.Color(0, 0, 0));
         jLabelCodigo.setText("Contraseña");
-        bg.add(jLabelCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 80, 60, -1));
+        bg.add(jLabelCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 110, 60, -1));
 
         txtBuscarID.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtBuscarIDKeyReleased(evt);
             }
         });
-        bg.add(txtBuscarID, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 60, 120, -1));
+        bg.add(txtBuscarID, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 52, 120, 30));
 
         btnCerrar.setText("Cerrar");
         btnCerrar.addActionListener(new java.awt.event.ActionListener() {
@@ -206,19 +206,19 @@ public class frmUsuario extends javax.swing.JInternalFrame {
 
         jLabelID2.setForeground(new java.awt.Color(0, 0, 0));
         jLabelID2.setText("ID");
-        bg.add(jLabelID2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 20, 30, -1));
+        bg.add(jLabelID2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 30, 30, -1));
 
         txtNombreUsuario.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtNombreUsuarioKeyReleased(evt);
             }
         });
-        bg.add(txtNombreUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 50, 120, -1));
+        bg.add(txtNombreUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 60, 120, 30));
 
         jLabelBuscarPor.setForeground(new java.awt.Color(0, 0, 0));
         jLabelBuscarPor.setText("Buscar por:");
-        bg.add(jLabelBuscarPor, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 40, 80, -1));
-        bg.add(txtContrasenia, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 80, 120, -1));
+        bg.add(jLabelBuscarPor, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 30, 80, -1));
+        bg.add(txtContrasenia, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 100, 120, 30));
 
         tblTabla.setBackground(new java.awt.Color(204, 204, 204));
         tblTabla.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -255,8 +255,8 @@ public class frmUsuario extends javax.swing.JInternalFrame {
             tblTabla.getColumnModel().getColumn(2).setResizable(false);
         }
 
-        bg.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 130, 590, 370));
-        bg.add(txtId, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 20, 120, 20));
+        bg.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 150, 590, 370));
+        bg.add(txtId, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 20, 120, 30));
 
         jLabelFondo2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo4.jpg"))); // NOI18N
         jLabelFondo2.setText("jLabel2");

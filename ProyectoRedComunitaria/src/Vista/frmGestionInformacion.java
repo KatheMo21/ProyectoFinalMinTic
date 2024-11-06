@@ -210,18 +210,18 @@ public class frmGestionInformacion extends javax.swing.JInternalFrame {
         jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo.jpg"))); // NOI18N
         jLabelFondo.setText("jLabel1");
         getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 210, 590));
-        getContentPane().add(txtId, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 20, 120, 20));
+        getContentPane().add(txtId, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 10, 120, 30));
 
-        getContentPane().add(jComboIdProyecto, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 80, 120, -1));
+        getContentPane().add(jComboIdProyecto, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 72, 120, 30));
 
-        getContentPane().add(jComboIdEmprendedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 20, 120, -1));
+        getContentPane().add(jComboIdEmprendedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 12, 120, 30));
 
         txtFecha.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtFechaKeyReleased(evt);
             }
         });
-        getContentPane().add(txtFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 80, 120, 20));
+        getContentPane().add(txtFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 70, 120, 30));
 
         jLabelID3.setForeground(new java.awt.Color(0, 0, 0));
         jLabelID3.setText("ID_gestion");

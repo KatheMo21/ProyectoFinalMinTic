@@ -88,47 +88,47 @@ public class frmProyecto extends javax.swing.JInternalFrame {
 
         jLabelID2.setForeground(new java.awt.Color(0, 0, 0));
         jLabelID2.setText("ID_proyecto");
-        getContentPane().add(jLabelID2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 20, 100, -1));
+        getContentPane().add(jLabelID2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 30, 100, -1));
 
         jLabelNombre.setForeground(new java.awt.Color(0, 0, 0));
         jLabelNombre.setText("ID_pais_creacion");
-        getContentPane().add(jLabelNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 50, 110, -1));
+        getContentPane().add(jLabelNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 70, 110, -1));
 
         jLabelCodigo.setForeground(new java.awt.Color(0, 0, 0));
         jLabelCodigo.setText("ID_emprendedor");
-        getContentPane().add(jLabelCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 80, 60, -1));
+        getContentPane().add(jLabelCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 110, 90, -1));
 
         jLabelID5.setForeground(new java.awt.Color(0, 0, 0));
         jLabelID5.setText("Nombre");
-        getContentPane().add(jLabelID5, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 20, 60, -1));
+        getContentPane().add(jLabelID5, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 30, 60, -1));
 
         jLabelNombre2.setForeground(new java.awt.Color(0, 0, 0));
         jLabelNombre2.setText("Sector Industrial");
-        getContentPane().add(jLabelNombre2, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 50, 100, -1));
+        getContentPane().add(jLabelNombre2, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 70, 110, -1));
 
         jLabelCodigo2.setForeground(new java.awt.Color(0, 0, 0));
         jLabelCodigo2.setText("Avaluo proyecto");
-        getContentPane().add(jLabelCodigo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 80, 60, -1));
-        getContentPane().add(txtId, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 20, 120, 20));
+        getContentPane().add(jLabelCodigo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 110, 100, -1));
+        getContentPane().add(txtId, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 20, 120, 30));
 
-        getContentPane().add(jComboIdPais, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 50, 120, -1));
+        getContentPane().add(jComboIdPais, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 60, 120, 30));
 
-        getContentPane().add(jComboIdEmprendedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 80, 120, -1));
+        getContentPane().add(jComboIdEmprendedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 100, 120, 30));
 
         txtNombre.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtNombreKeyReleased(evt);
             }
         });
-        getContentPane().add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 20, 120, 20));
+        getContentPane().add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 20, 120, 30));
 
         txtSectorI.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtSectorIKeyReleased(evt);
             }
         });
-        getContentPane().add(txtSectorI, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 50, 120, -1));
-        getContentPane().add(txtAvaluo, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 80, 120, -1));
+        getContentPane().add(txtSectorI, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 62, 120, 30));
+        getContentPane().add(txtAvaluo, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 100, 120, 30));
 
         tblTabla.setBackground(new java.awt.Color(204, 204, 204));
         tblTabla.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -160,14 +160,14 @@ public class frmProyecto extends javax.swing.JInternalFrame {
         });
         jScrollPane1.setViewportView(tblTabla);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 130, 1000, 370));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 150, 1000, 370));
 
         txtBuscarID.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtBuscarIDKeyReleased(evt);
             }
         });
-        getContentPane().add(txtBuscarID, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 540, 120, -1));
+        getContentPane().add(txtBuscarID, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 540, 120, 30));
 
         jLabelBuscarPor.setForeground(new java.awt.Color(0, 0, 0));
         jLabelBuscarPor.setText("Buscar por:");
@@ -175,7 +175,7 @@ public class frmProyecto extends javax.swing.JInternalFrame {
 
         jLabelID1.setForeground(new java.awt.Color(0, 0, 0));
         jLabelID1.setText("ID");
-        getContentPane().add(jLabelID1, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 540, 30, -1));
+        getContentPane().add(jLabelID1, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 550, 30, -1));
 
         btnCerrar.setText("Cerrar");
         btnCerrar.addActionListener(new java.awt.event.ActionListener() {

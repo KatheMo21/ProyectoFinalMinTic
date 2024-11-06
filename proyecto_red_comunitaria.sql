@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 05-11-2024 a las 18:34:29
+-- Tiempo de generación: 06-11-2024 a las 18:31:15
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.1.25
 
@@ -40,6 +40,13 @@ CREATE TABLE `emprendedor` (
   `mes_nacimiento` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Volcado de datos para la tabla `emprendedor`
+--
+
+INSERT INTO `emprendedor` (`id_emprendedor`, `id_pais_nacimiento`, `id_usuario`, `nombre`, `apellido`, `edad`, `genero`, `profesion`, `anio_nacimiento`, `mes_nacimiento`) VALUES
+(2, 1, 5, 'Katherin', 'Monroy', '27', 'Femenino', 'Administradora de Empresa', '1997', '04');
+
 -- --------------------------------------------------------
 
 --
@@ -52,6 +59,13 @@ CREATE TABLE `gestiondeinformacion` (
   `fecha_generacion` varchar(100) NOT NULL,
   `id_emprendedor` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `gestiondeinformacion`
+--
+
+INSERT INTO `gestiondeinformacion` (`id_gestion`, `id_proyecto`, `fecha_generacion`, `id_emprendedor`) VALUES
+(1, 2, '2024-11-06', 2);
 
 -- --------------------------------------------------------
 
@@ -77,7 +91,8 @@ CREATE TABLE `pais` (
 --
 
 INSERT INTO `pais` (`id_pais`, `nombre`, `estado`, `poblacion`, `ciudad`, `region`, `latitud`, `longitud`, `calificacion_riesgo`, `tasa_impuesto`) VALUES
-(1, 'Colombia', 'Caldas', 40000, 'Manizales', 'Norte', '13', '28', 'AAAA', 13);
+(1, 'Colombia', 'Caldas', 40000, 'Manizales', 'Norte', '13', '28', 'AAAA', 13),
+(2, 'Portugal', 'Local', 1200000, 'Lisboa', 'Norte', '15', '26', 'BBB-', 15);
 
 -- --------------------------------------------------------
 
@@ -93,6 +108,25 @@ CREATE TABLE `proyecto` (
   `sector_industrial` varchar(100) NOT NULL,
   `avaluo_proyecto` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `proyecto`
+--
+
+INSERT INTO `proyecto` (`id_proyecto`, `id_emprendedor`, `id_pais_creacion`, `nombre`, `sector_industrial`, `avaluo_proyecto`) VALUES
+(2, 2, 1, 'Intensionadamente', 'Manufactura y Bisutería', 5000000);
+
+--
+-- Disparadores `proyecto`
+--
+DELIMITER $$
+CREATE TRIGGER `INSERTA_GESTION` AFTER INSERT ON `proyecto` FOR EACH ROW BEGIN
+	SET @fecha=CONVERT(CURRENT_DATE(), CHAR);
+	INSERT INTO gestiondeinformacion (id_proyecto,fecha_generacion,id_emprendedor)
+    VALUES (NEW.id_proyecto,@fecha,NEW.id_emprendedor);
+END
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -111,7 +145,8 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`id_usuario`, `nombre_usuario`, `contrasenia`) VALUES
-(4, 'lfalzateo', 'Alzate95');
+(5, 'kathe12', 'Kathe3455'),
+(6, 'lfalzateo', 'Alzate95');
 
 --
 -- Índices para tablas volcadas
@@ -161,31 +196,31 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `emprendedor`
 --
 ALTER TABLE `emprendedor`
-  MODIFY `id_emprendedor` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_emprendedor` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `gestiondeinformacion`
 --
 ALTER TABLE `gestiondeinformacion`
-  MODIFY `id_gestion` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_gestion` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `pais`
 --
 ALTER TABLE `pais`
-  MODIFY `id_pais` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_pais` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `proyecto`
 --
 ALTER TABLE `proyecto`
-  MODIFY `id_proyecto` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_proyecto` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id_usuario` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_usuario` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Restricciones para tablas volcadas

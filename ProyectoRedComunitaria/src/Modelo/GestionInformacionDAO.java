@@ -114,7 +114,7 @@ public class GestionInformacionDAO {
     
     public List<Integer> listarEmprendedores() throws SQLException {
         List<Integer> listaIdemprendedores = new ArrayList<>();
-        String query = "SELECT id_emprendedor FROM emprendedor";
+        String query = "SELECT distinct(id_emprendedor) FROM proyecto";
         Statement st = connection.createStatement();
         ResultSet rs = st.executeQuery(query);
 

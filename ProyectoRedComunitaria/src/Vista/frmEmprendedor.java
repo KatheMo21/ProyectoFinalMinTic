@@ -228,7 +228,7 @@ public class frmEmprendedor extends javax.swing.JInternalFrame {
                 txtBuscarIDKeyReleased(evt);
             }
         });
-        getContentPane().add(txtBuscarID, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 540, 120, -1));
+        getContentPane().add(txtBuscarID, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 540, 120, 30));
 
         jLabelBuscarPor.setForeground(new java.awt.Color(0, 0, 0));
         jLabelBuscarPor.setText("Buscar por:");
@@ -244,12 +244,12 @@ public class frmEmprendedor extends javax.swing.JInternalFrame {
 
         jLabelNombre.setForeground(new java.awt.Color(0, 0, 0));
         jLabelNombre.setText("ID_pais_nacimiento");
-        getContentPane().add(jLabelNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 50, 110, -1));
+        getContentPane().add(jLabelNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 60, 110, -1));
 
         jLabelCodigo.setForeground(new java.awt.Color(0, 0, 0));
         jLabelCodigo.setText("ID_usuario");
-        getContentPane().add(jLabelCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 80, 60, -1));
-        getContentPane().add(txtId, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 20, 120, 20));
+        getContentPane().add(jLabelCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 90, 60, -1));
+        getContentPane().add(txtId, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 10, 120, 30));
 
         jLabelID5.setForeground(new java.awt.Color(0, 0, 0));
         jLabelID5.setText("Nombre");
@@ -257,57 +257,57 @@ public class frmEmprendedor extends javax.swing.JInternalFrame {
 
         jLabelNombre2.setForeground(new java.awt.Color(0, 0, 0));
         jLabelNombre2.setText("Apellido");
-        getContentPane().add(jLabelNombre2, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 50, 100, -1));
+        getContentPane().add(jLabelNombre2, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 60, 100, -1));
 
         jLabelCodigo2.setForeground(new java.awt.Color(0, 0, 0));
         jLabelCodigo2.setText("Edad");
-        getContentPane().add(jLabelCodigo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 80, 60, -1));
+        getContentPane().add(jLabelCodigo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 100, 60, -1));
 
         txtNombre.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtNombreKeyReleased(evt);
             }
         });
-        getContentPane().add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 20, 120, 20));
+        getContentPane().add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 10, 120, 30));
 
         txtApellido.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtApellidoKeyReleased(evt);
             }
         });
-        getContentPane().add(txtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 50, 120, -1));
-        getContentPane().add(txtEdad, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 80, 120, -1));
+        getContentPane().add(txtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 50, 120, 30));
+        getContentPane().add(txtEdad, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 90, 120, 30));
 
         jLabelID6.setForeground(new java.awt.Color(0, 0, 0));
         jLabelID6.setText("Genero");
-        getContentPane().add(jLabelID6, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 20, 60, -1));
+        getContentPane().add(jLabelID6, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 20, 60, -1));
 
         jLabelNombre1.setForeground(new java.awt.Color(0, 0, 0));
         jLabelNombre1.setText("Profesion");
-        getContentPane().add(jLabelNombre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 50, 60, -1));
+        getContentPane().add(jLabelNombre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 60, 60, -1));
 
         jLabelCodigo1.setForeground(new java.awt.Color(0, 0, 0));
         jLabelCodigo1.setText("Año nacimiento");
-        getContentPane().add(jLabelCodigo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 80, 90, -1));
-        getContentPane().add(txtGenero, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 20, 120, 20));
-        getContentPane().add(txtAnioNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 80, 120, -1));
+        getContentPane().add(jLabelCodigo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 100, 90, -1));
+        getContentPane().add(txtGenero, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 10, 120, 30));
+        getContentPane().add(txtAnioNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 90, 120, 30));
 
         txtProfesion.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtProfesionKeyReleased(evt);
             }
         });
-        getContentPane().add(txtProfesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 50, 120, -1));
-        getContentPane().add(txtMesNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 80, 80, 20));
+        getContentPane().add(txtProfesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 50, 120, 30));
+        getContentPane().add(txtMesNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 70, 80, 30));
 
         jComboIdPais.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jComboIdPaisKeyReleased(evt);
             }
         });
-        getContentPane().add(jComboIdPais, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 50, 120, -1));
+        getContentPane().add(jComboIdPais, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 50, 120, 30));
 
-        getContentPane().add(jComboIdUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 80, 120, -1));
+        getContentPane().add(jComboIdUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 90, 120, 30));
 
         btnCerrar.setText("Cerrar");
         btnCerrar.addActionListener(new java.awt.event.ActionListener() {

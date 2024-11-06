@@ -185,7 +185,7 @@ public class frmPais extends javax.swing.JInternalFrame {
 
         jLabelNombre.setForeground(new java.awt.Color(0, 0, 0));
         jLabelNombre.setText("Nombre");
-        bg.add(jLabelNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 50, 100, -1));
+        bg.add(jLabelNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 60, 100, -1));
 
         jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo.jpg"))); // NOI18N
         jLabelFondo.setText("jLabel1");
@@ -197,7 +197,7 @@ public class frmPais extends javax.swing.JInternalFrame {
 
         jLabelCodigo.setForeground(new java.awt.Color(0, 0, 0));
         jLabelCodigo.setText("Estado");
-        bg.add(jLabelCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 80, 60, -1));
+        bg.add(jLabelCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 100, 60, -1));
 
         txtBuscarID.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -215,12 +215,12 @@ public class frmPais extends javax.swing.JInternalFrame {
                 txtNombreKeyReleased(evt);
             }
         });
-        bg.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 50, 120, -1));
+        bg.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 50, 120, 30));
 
         jLabelBuscarPor.setForeground(new java.awt.Color(0, 0, 0));
         jLabelBuscarPor.setText("Buscar por:");
         bg.add(jLabelBuscarPor, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 520, 80, -1));
-        bg.add(txtEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 80, 120, -1));
+        bg.add(txtEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 90, 120, 30));
 
         tblTabla.setBackground(new java.awt.Color(204, 204, 204));
         tblTabla.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -253,7 +253,7 @@ public class frmPais extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(tblTabla);
 
         bg.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 130, 910, 370));
-        bg.add(txtId, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 20, 120, 20));
+        bg.add(txtId, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 10, 120, 30));
 
         jLabelID3.setForeground(new java.awt.Color(0, 0, 0));
         jLabelID3.setText("Tasa Impuesto");
@@ -261,29 +261,29 @@ public class frmPais extends javax.swing.JInternalFrame {
 
         jLabelNombre1.setForeground(new java.awt.Color(0, 0, 0));
         jLabelNombre1.setText("Longitud");
-        bg.add(jLabelNombre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 50, 60, -1));
+        bg.add(jLabelNombre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 60, 60, -1));
 
         jLabelCodigo1.setForeground(new java.awt.Color(0, 0, 0));
         jLabelCodigo1.setText("Calif Riesgo");
-        bg.add(jLabelCodigo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 80, 70, -1));
-        bg.add(txtPoblacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 20, 120, 20));
+        bg.add(jLabelCodigo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 100, 70, -1));
+        bg.add(txtPoblacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 10, 120, 30));
 
         txtCiudad.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtCiudadKeyReleased(evt);
             }
         });
-        bg.add(txtCiudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 50, 120, -1));
-        bg.add(txtRegion, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 80, 120, -1));
+        bg.add(txtCiudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 50, 120, 30));
+        bg.add(txtRegion, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 90, 120, 30));
 
         jLabelNombre2.setForeground(new java.awt.Color(0, 0, 0));
         jLabelNombre2.setText("Ciudad");
-        bg.add(jLabelNombre2, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 50, 100, -1));
+        bg.add(jLabelNombre2, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 60, 100, -1));
 
         jLabelCodigo2.setForeground(new java.awt.Color(0, 0, 0));
         jLabelCodigo2.setText("Region");
-        bg.add(jLabelCodigo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 80, 60, -1));
-        bg.add(txtTasa, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 50, 80, 20));
+        bg.add(jLabelCodigo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 90, 60, 20));
+        bg.add(txtTasa, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 50, 80, 30));
 
         jLabelID5.setForeground(new java.awt.Color(0, 0, 0));
         jLabelID5.setText("Poblacion");
@@ -294,9 +294,15 @@ public class frmPais extends javax.swing.JInternalFrame {
                 txtLongitudKeyReleased(evt);
             }
         });
-        bg.add(txtLongitud, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 50, 120, -1));
-        bg.add(txtCalificacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 80, 120, -1));
-        bg.add(txtLatitud, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 20, 120, 20));
+        bg.add(txtLongitud, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 50, 120, 30));
+
+        txtCalificacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCalificacionActionPerformed(evt);
+            }
+        });
+        bg.add(txtCalificacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 92, 120, 30));
+        bg.add(txtLatitud, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 10, 120, 30));
 
         btnCerrar.setText("Cerrar");
         btnCerrar.addActionListener(new java.awt.event.ActionListener() {
@@ -402,6 +408,10 @@ public class frmPais extends javax.swing.JInternalFrame {
     private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarActionPerformed
         this.dispose();
     }//GEN-LAST:event_btnCerrarActionPerformed
+
+    private void txtCalificacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCalificacionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCalificacionActionPerformed
 
     private void eliminar(int id) throws SQLException {
         
