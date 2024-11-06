@@ -63,6 +63,7 @@ public class GestionInformacionDAO {
         ps.setInt(2, gi.getId_proyecto());
         ps.setString(3, gi.getFechaGeneracion());
         ps.setInt(4, gi.getId_emprendedor());
+        ps.setInt(5, gi.getId_gestion());
         ps.executeUpdate();
         ps.close();
     }

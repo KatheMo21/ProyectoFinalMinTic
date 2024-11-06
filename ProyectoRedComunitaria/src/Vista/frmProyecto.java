@@ -23,7 +23,6 @@ import javax.swing.table.DefaultTableModel;
  */
 public class frmProyecto extends javax.swing.JInternalFrame {
     private ProyectoControlador proyectoController;
-    //private PaisControlador paisController;
     private static Proyecto proyecto = new Proyecto();
     private List<Proyecto> listaProyecto;
     DefaultTableModel tableModel = new DefaultTableModel();
@@ -54,16 +53,6 @@ public class frmProyecto extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnAgregar = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        btnActualizar = new javax.swing.JButton();
-        jLabelActualizar = new javax.swing.JLabel();
-        btnBuscar = new javax.swing.JButton();
-        jLabelBuscar = new javax.swing.JLabel();
-        btnEliminar = new javax.swing.JButton();
-        jLabelEliminar = new javax.swing.JLabel();
-        btnlimpiar = new javax.swing.JButton();
-        jLabelLimpiar = new javax.swing.JLabel();
         jLabelID2 = new javax.swing.JLabel();
         jLabelNombre = new javax.swing.JLabel();
         jLabelCodigo = new javax.swing.JLabel();
@@ -82,113 +71,64 @@ public class frmProyecto extends javax.swing.JInternalFrame {
         jLabelBuscarPor = new javax.swing.JLabel();
         jLabelID1 = new javax.swing.JLabel();
         btnCerrar = new javax.swing.JButton();
-        jLabelFondo = new javax.swing.JLabel();
         jLabelFondo2 = new javax.swing.JLabel();
+        btnAgregar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        btnActualizar = new javax.swing.JButton();
+        jLabelActualizar = new javax.swing.JLabel();
+        btnBuscar = new javax.swing.JButton();
+        jLabelBuscar = new javax.swing.JLabel();
+        btnEliminar = new javax.swing.JButton();
+        jLabelEliminar = new javax.swing.JLabel();
+        btnlimpiar = new javax.swing.JButton();
+        jLabelLimpiar = new javax.swing.JLabel();
+        jLabelFondo = new javax.swing.JLabel();
 
-        btnAgregar.setBackground(new java.awt.Color(204, 204, 204));
-        btnAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/agregar.png"))); // NOI18N
-        btnAgregar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnAgregar.setBorderPainted(false);
-        btnAgregar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAgregarActionPerformed(evt);
-            }
-        });
-
-        jLabel1.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("Agregar");
-
-        btnActualizar.setBackground(new java.awt.Color(204, 204, 204));
-        btnActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/actualizar.png"))); // NOI18N
-        btnActualizar.setAlignmentY(0.0F);
-        btnActualizar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnActualizar.setBorderPainted(false);
-        btnActualizar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnActualizar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnActualizarActionPerformed(evt);
-            }
-        });
-
-        jLabelActualizar.setBackground(new java.awt.Color(0, 0, 0));
-        jLabelActualizar.setForeground(new java.awt.Color(0, 0, 0));
-        jLabelActualizar.setText("Actualizar");
-
-        btnBuscar.setBackground(new java.awt.Color(204, 204, 204));
-        btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/buscar.png"))); // NOI18N
-        btnBuscar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnBuscar.setBorderPainted(false);
-        btnBuscar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBuscarActionPerformed(evt);
-            }
-        });
-        btnBuscar.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                btnBuscarKeyReleased(evt);
-            }
-        });
-
-        jLabelBuscar.setBackground(new java.awt.Color(0, 0, 0));
-        jLabelBuscar.setForeground(new java.awt.Color(0, 0, 0));
-        jLabelBuscar.setText("Buscar");
-
-        btnEliminar.setBackground(new java.awt.Color(204, 204, 204));
-        btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/eliminar.png"))); // NOI18N
-        btnEliminar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnEliminar.setBorderPainted(false);
-        btnEliminar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEliminarActionPerformed(evt);
-            }
-        });
-
-        jLabelEliminar.setBackground(new java.awt.Color(0, 0, 0));
-        jLabelEliminar.setForeground(new java.awt.Color(0, 0, 0));
-        jLabelEliminar.setText("Eliminar");
-
-        btnlimpiar.setBackground(new java.awt.Color(204, 204, 204));
-        btnlimpiar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/limpiar.png"))); // NOI18N
-        btnlimpiar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        btnlimpiar.setBorderPainted(false);
-        btnlimpiar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnlimpiar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnlimpiarActionPerformed(evt);
-            }
-        });
-
-        jLabelLimpiar.setBackground(new java.awt.Color(0, 0, 0));
-        jLabelLimpiar.setForeground(new java.awt.Color(0, 0, 0));
-        jLabelLimpiar.setText("Limpiar");
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabelID2.setForeground(new java.awt.Color(0, 0, 0));
         jLabelID2.setText("ID_proyecto");
+        getContentPane().add(jLabelID2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 20, 100, -1));
 
         jLabelNombre.setForeground(new java.awt.Color(0, 0, 0));
         jLabelNombre.setText("ID_pais_creacion");
+        getContentPane().add(jLabelNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 50, 110, -1));
 
         jLabelCodigo.setForeground(new java.awt.Color(0, 0, 0));
         jLabelCodigo.setText("ID_emprendedor");
+        getContentPane().add(jLabelCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 80, 60, -1));
 
         jLabelID5.setForeground(new java.awt.Color(0, 0, 0));
         jLabelID5.setText("Nombre");
+        getContentPane().add(jLabelID5, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 20, 60, -1));
 
         jLabelNombre2.setForeground(new java.awt.Color(0, 0, 0));
         jLabelNombre2.setText("Sector Industrial");
+        getContentPane().add(jLabelNombre2, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 50, 100, -1));
 
         jLabelCodigo2.setForeground(new java.awt.Color(0, 0, 0));
         jLabelCodigo2.setText("Avaluo proyecto");
+        getContentPane().add(jLabelCodigo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 80, 60, -1));
+        getContentPane().add(txtId, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 20, 120, 20));
+
+        getContentPane().add(jComboIdPais, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 50, 120, -1));
+
+        getContentPane().add(jComboIdEmprendedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 80, 120, -1));
+
+        txtNombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtNombreKeyReleased(evt);
+            }
+        });
+        getContentPane().add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 20, 120, 20));
 
         txtSectorI.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtSectorIKeyReleased(evt);
             }
         });
+        getContentPane().add(txtSectorI, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 50, 120, -1));
+        getContentPane().add(txtAvaluo, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 80, 120, -1));
 
         tblTabla.setBackground(new java.awt.Color(204, 204, 204));
         tblTabla.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -220,17 +160,22 @@ public class frmProyecto extends javax.swing.JInternalFrame {
         });
         jScrollPane1.setViewportView(tblTabla);
 
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 130, 1000, 370));
+
         txtBuscarID.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtBuscarIDKeyReleased(evt);
             }
         });
+        getContentPane().add(txtBuscarID, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 540, 120, -1));
 
         jLabelBuscarPor.setForeground(new java.awt.Color(0, 0, 0));
         jLabelBuscarPor.setText("Buscar por:");
+        getContentPane().add(jLabelBuscarPor, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 520, 80, -1));
 
         jLabelID1.setForeground(new java.awt.Color(0, 0, 0));
         jLabelID1.setText("ID");
+        getContentPane().add(jLabelID1, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 540, 30, -1));
 
         btnCerrar.setText("Cerrar");
         btnCerrar.addActionListener(new java.awt.event.ActionListener() {
@@ -238,169 +183,121 @@ public class frmProyecto extends javax.swing.JInternalFrame {
                 btnCerrarActionPerformed(evt);
             }
         });
-
-        jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo.jpg"))); // NOI18N
-        jLabelFondo.setText("jLabel1");
+        getContentPane().add(btnCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 540, -1, -1));
 
         jLabelFondo2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo4.jpg"))); // NOI18N
         jLabelFondo2.setText("jLabel2");
+        getContentPane().add(jLabelFondo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 0, 1040, 590));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(266, 266, 266)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabelID2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabelCodigo, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE))
-                        .addGap(16, 16, 16))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabelNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jComboIdEmprendedor, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabelNombre2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jComboIdPais, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(29, 29, 29)
-                        .addComponent(jLabelCodigo2, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtAvaluo, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtSectorI, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 231, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1000, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(21, 21, 21))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 1, Short.MAX_VALUE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabelFondo, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(10, 10, 10)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(10, 10, 10)
-                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(10, 10, 10)
-                                    .addComponent(jLabelActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(10, 10, 10)
-                                    .addComponent(jLabelBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(10, 10, 10)
-                                    .addComponent(jLabelEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(btnlimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(10, 10, 10)
-                                    .addComponent(jLabelLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(320, 320, 320)
-                            .addComponent(jLabelID5, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(660, 660, 660)
-                            .addComponent(jLabelBuscarPor, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(620, 620, 620)
-                            .addComponent(jLabelID1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(10, 10, 10)
-                            .addComponent(txtBuscarID, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(150, 150, 150)
-                            .addComponent(btnCerrar))
-                        .addComponent(jLabelFondo2, javax.swing.GroupLayout.PREFERRED_SIZE, 1040, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(0, 1, Short.MAX_VALUE)))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelID2)
-                    .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboIdEmprendedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelCodigo)
-                    .addComponent(txtSectorI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelNombre2))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelNombre)
-                    .addComponent(jComboIdPais, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtAvaluo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelCodigo2))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(86, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(30, 30, 30)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(30, 30, 30)
-                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGap(20, 20, 20)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(30, 30, 30)
-                                    .addComponent(jLabelActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGap(20, 20, 20)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(30, 30, 30)
-                                    .addComponent(jLabelBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGap(20, 20, 20)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(30, 30, 30)
-                                    .addComponent(jLabelEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGap(10, 10, 10)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(btnlimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(30, 30, 30)
-                                    .addComponent(jLabelLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addComponent(jLabelFondo, javax.swing.GroupLayout.PREFERRED_SIZE, 590, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(20, 20, 20)
-                            .addComponent(jLabelID5)
-                            .addGap(484, 484, 484)
-                            .addComponent(jLabelBuscarPor)
-                            .addGap(4, 4, 4)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabelID1)
-                                .addComponent(txtBuscarID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(btnCerrar)))
-                        .addComponent(jLabelFondo2, javax.swing.GroupLayout.PREFERRED_SIZE, 590, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
+        btnAgregar.setBackground(new java.awt.Color(204, 204, 204));
+        btnAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/agregar.png"))); // NOI18N
+        btnAgregar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnAgregar.setBorderPainted(false);
+        btnAgregar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 90, 80));
+
+        jLabel1.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setText("Agregar");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 60, 80, 30));
+
+        btnActualizar.setBackground(new java.awt.Color(204, 204, 204));
+        btnActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/actualizar.png"))); // NOI18N
+        btnActualizar.setAlignmentY(0.0F);
+        btnActualizar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnActualizar.setBorderPainted(false);
+        btnActualizar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActualizarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 90, 80));
+
+        jLabelActualizar.setBackground(new java.awt.Color(0, 0, 0));
+        jLabelActualizar.setForeground(new java.awt.Color(0, 0, 0));
+        jLabelActualizar.setText("Actualizar");
+        getContentPane().add(jLabelActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, 80, 30));
+
+        btnBuscar.setBackground(new java.awt.Color(204, 204, 204));
+        btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/buscar.png"))); // NOI18N
+        btnBuscar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnBuscar.setBorderPainted(false);
+        btnBuscar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarActionPerformed(evt);
+            }
+        });
+        btnBuscar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                btnBuscarKeyReleased(evt);
+            }
+        });
+        getContentPane().add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, 90, 80));
+
+        jLabelBuscar.setBackground(new java.awt.Color(0, 0, 0));
+        jLabelBuscar.setForeground(new java.awt.Color(0, 0, 0));
+        jLabelBuscar.setText("Buscar");
+        getContentPane().add(jLabelBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 260, 80, 30));
+
+        btnEliminar.setBackground(new java.awt.Color(204, 204, 204));
+        btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/eliminar.png"))); // NOI18N
+        btnEliminar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnEliminar.setBorderPainted(false);
+        btnEliminar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 330, 90, 80));
+
+        jLabelEliminar.setBackground(new java.awt.Color(0, 0, 0));
+        jLabelEliminar.setForeground(new java.awt.Color(0, 0, 0));
+        jLabelEliminar.setText("Eliminar");
+        getContentPane().add(jLabelEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 360, 80, 30));
+
+        btnlimpiar.setBackground(new java.awt.Color(204, 204, 204));
+        btnlimpiar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/limpiar.png"))); // NOI18N
+        btnlimpiar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnlimpiar.setBorderPainted(false);
+        btnlimpiar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnlimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnlimpiarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnlimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 420, 90, 80));
+
+        jLabelLimpiar.setBackground(new java.awt.Color(0, 0, 0));
+        jLabelLimpiar.setForeground(new java.awt.Color(0, 0, 0));
+        jLabelLimpiar.setText("Limpiar");
+        getContentPane().add(jLabelLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 450, 80, 30));
+
+        jLabelFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo.jpg"))); // NOI18N
+        jLabelFondo.setText("jLabel1");
+        getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 210, 590));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtSectorIKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSectorIKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSectorIKeyReleased
+
+    private void txtBuscarIDKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarIDKeyReleased
+        btnBuscar.setEnabled(!txtBuscarID.getText().trim().isEmpty());
+    }//GEN-LAST:event_txtBuscarIDKeyReleased
+
+    private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btnCerrarActionPerformed
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
 
@@ -416,7 +313,7 @@ public class frmProyecto extends javax.swing.JInternalFrame {
         try {
             consultar();
         } catch (SQLException ex) {
-            Logger.getLogger(frmProyecto.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(frmGestionInformacion.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnBuscarActionPerformed
 
@@ -434,7 +331,7 @@ public class frmProyecto extends javax.swing.JInternalFrame {
                     try {
                         eliminar(id);
                     } catch (SQLException ex) {
-                        Logger.getLogger(frmProyecto.class.getName()).log(Level.SEVERE, null, ex);
+                        Logger.getLogger(frmGestionInformacion.class.getName()).log(Level.SEVERE, null, ex);
                     }
                     JOptionPane.showMessageDialog(this, " El usuario con ID " + id + " ha sido eliminado exitosamente ");
                 }
@@ -448,17 +345,9 @@ public class frmProyecto extends javax.swing.JInternalFrame {
         limpiarFormulario();
     }//GEN-LAST:event_btnlimpiarActionPerformed
 
-    private void txtSectorIKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSectorIKeyReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtSectorIKeyReleased
-
-    private void txtBuscarIDKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarIDKeyReleased
-        btnBuscar.setEnabled(!txtBuscarID.getText().trim().isEmpty());
-    }//GEN-LAST:event_txtBuscarIDKeyReleased
-
-    private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarActionPerformed
-        this.dispose();
-    }//GEN-LAST:event_btnCerrarActionPerformed
+    private void txtNombreKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyReleased
+        btnAgregar.setEnabled(!txtNombre.getText().trim().isEmpty());
+    }//GEN-LAST:event_txtNombreKeyReleased
 
     private void eliminar(int id) throws SQLException {
         

@@ -19,6 +19,7 @@ public class Principal extends javax.swing.JFrame {
      */
     public Principal() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -31,6 +32,7 @@ public class Principal extends javax.swing.JFrame {
     private void initComponents() {
 
         escEscritorio = new javax.swing.JDesktopPane();
+        jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         IngInformacion = new javax.swing.JMenu();
         itmUsuario = new javax.swing.JMenuItem();
@@ -38,18 +40,26 @@ public class Principal extends javax.swing.JFrame {
         itmEmprendedor = new javax.swing.JMenuItem();
         itmProyecto = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
+        ItmGestionInformación = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondoazul.jpg"))); // NOI18N
+
+        escEscritorio.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout escEscritorioLayout = new javax.swing.GroupLayout(escEscritorio);
         escEscritorio.setLayout(escEscritorioLayout);
         escEscritorioLayout.setHorizontalGroup(
             escEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1241, Short.MAX_VALUE)
+            .addGroup(escEscritorioLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         escEscritorioLayout.setVerticalGroup(
             escEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 674, Short.MAX_VALUE)
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         IngInformacion.setText("Ingresar Información");
@@ -79,11 +89,25 @@ public class Principal extends javax.swing.JFrame {
         IngInformacion.add(itmEmprendedor);
 
         itmProyecto.setText("Proyectos");
+        itmProyecto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itmProyectoActionPerformed(evt);
+            }
+        });
         IngInformacion.add(itmProyecto);
 
         jMenuBar1.add(IngInformacion);
 
-        jMenu2.setText("Edit");
+        jMenu2.setText("Gestion Información");
+
+        ItmGestionInformación.setText("Gestionar información");
+        ItmGestionInformación.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ItmGestionInformaciónActionPerformed(evt);
+            }
+        });
+        jMenu2.add(ItmGestionInformación);
+
         jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
@@ -141,6 +165,28 @@ public class Principal extends javax.swing.JFrame {
         frmEmprendedor.show();
     }//GEN-LAST:event_itmEmprendedorActionPerformed
 
+    private void itmProyectoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmProyectoActionPerformed
+        frmProyecto frmProyecto = null;
+        try {
+            frmProyecto = new frmProyecto();
+        } catch (SQLException ex) {
+            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        escEscritorio.add(frmProyecto);
+        frmProyecto.show();
+    }//GEN-LAST:event_itmProyectoActionPerformed
+
+    private void ItmGestionInformaciónActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItmGestionInformaciónActionPerformed
+        frmGestionInformacion frmGestionInformacion = null;
+        try {
+            frmGestionInformacion = new frmGestionInformacion();
+        } catch (SQLException ex) {
+            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        escEscritorio.add(frmGestionInformacion);
+        frmGestionInformacion.show();
+    }//GEN-LAST:event_ItmGestionInformaciónActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -179,11 +225,13 @@ public class Principal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu IngInformacion;
+    private javax.swing.JMenuItem ItmGestionInformación;
     private javax.swing.JDesktopPane escEscritorio;
     private javax.swing.JMenuItem itmEmprendedor;
     private javax.swing.JMenuItem itmPais;
     private javax.swing.JMenuItem itmProyecto;
     private javax.swing.JMenuItem itmUsuario;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     // End of variables declaration//GEN-END:variables

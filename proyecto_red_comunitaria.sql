@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 31-10-2024 a las 17:44:19
+-- Tiempo de generación: 05-11-2024 a las 18:34:29
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.1.25
 
@@ -47,10 +47,10 @@ CREATE TABLE `emprendedor` (
 --
 
 CREATE TABLE `gestiondeinformacion` (
-  `id_Gestion` int(10) NOT NULL,
-  `id_usuario` int(11) DEFAULT NULL,
+  `id_gestion` int(10) NOT NULL,
   `id_proyecto` int(11) DEFAULT NULL,
-  `fecha_generacion` varchar(100) NOT NULL
+  `fecha_generacion` varchar(100) NOT NULL,
+  `id_emprendedor` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -71,6 +71,13 @@ CREATE TABLE `pais` (
   `calificacion_riesgo` varchar(10) NOT NULL,
   `tasa_impuesto` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `pais`
+--
+
+INSERT INTO `pais` (`id_pais`, `nombre`, `estado`, `poblacion`, `ciudad`, `region`, `latitud`, `longitud`, `calificacion_riesgo`, `tasa_impuesto`) VALUES
+(1, 'Colombia', 'Caldas', 40000, 'Manizales', 'Norte', '13', '28', 'AAAA', 13);
 
 -- --------------------------------------------------------
 
@@ -100,6 +107,13 @@ CREATE TABLE `usuario` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
+-- Volcado de datos para la tabla `usuario`
+--
+
+INSERT INTO `usuario` (`id_usuario`, `nombre_usuario`, `contrasenia`) VALUES
+(4, 'lfalzateo', 'Alzate95');
+
+--
 -- Índices para tablas volcadas
 --
 
@@ -115,9 +129,9 @@ ALTER TABLE `emprendedor`
 -- Indices de la tabla `gestiondeinformacion`
 --
 ALTER TABLE `gestiondeinformacion`
-  ADD PRIMARY KEY (`id_Gestion`),
-  ADD KEY `id_usuario` (`id_usuario`),
-  ADD KEY `id_proyecto` (`id_proyecto`);
+  ADD PRIMARY KEY (`id_gestion`),
+  ADD KEY `id_proyecto` (`id_proyecto`),
+  ADD KEY `fk_id_emprendedor` (`id_emprendedor`);
 
 --
 -- Indices de la tabla `pais`
@@ -153,13 +167,13 @@ ALTER TABLE `emprendedor`
 -- AUTO_INCREMENT de la tabla `gestiondeinformacion`
 --
 ALTER TABLE `gestiondeinformacion`
-  MODIFY `id_Gestion` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_gestion` int(10) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `pais`
 --
 ALTER TABLE `pais`
-  MODIFY `id_pais` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_pais` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `proyecto`
@@ -171,7 +185,7 @@ ALTER TABLE `proyecto`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id_usuario` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_usuario` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Restricciones para tablas volcadas
@@ -188,7 +202,7 @@ ALTER TABLE `emprendedor`
 -- Filtros para la tabla `gestiondeinformacion`
 --
 ALTER TABLE `gestiondeinformacion`
-  ADD CONSTRAINT `gestiondeinformacion_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`),
+  ADD CONSTRAINT `fk_id_emprendedor` FOREIGN KEY (`id_emprendedor`) REFERENCES `emprendedor` (`id_emprendedor`),
   ADD CONSTRAINT `gestiondeinformacion_ibfk_2` FOREIGN KEY (`id_proyecto`) REFERENCES `proyecto` (`id_proyecto`);
 
 --

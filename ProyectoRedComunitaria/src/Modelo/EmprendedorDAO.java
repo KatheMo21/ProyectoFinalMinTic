@@ -83,6 +83,7 @@ public class EmprendedorDAO {
         ps.setString(7, emprendedor.getProfesion());
         ps.setString(8, emprendedor.getAnio_nacimiento());
         ps.setString(9, emprendedor.getMes_nacimiento());
+        ps.setInt(10, emprendedor.getId_emprendedor());
         ps.executeUpdate();
         ps.close();
     }

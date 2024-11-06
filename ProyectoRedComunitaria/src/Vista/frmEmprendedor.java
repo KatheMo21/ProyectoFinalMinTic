@@ -262,6 +262,12 @@ public class frmEmprendedor extends javax.swing.JInternalFrame {
         jLabelCodigo2.setForeground(new java.awt.Color(0, 0, 0));
         jLabelCodigo2.setText("Edad");
         getContentPane().add(jLabelCodigo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 80, 60, -1));
+
+        txtNombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtNombreKeyReleased(evt);
+            }
+        });
         getContentPane().add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 20, 120, 20));
 
         txtApellido.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -294,6 +300,11 @@ public class frmEmprendedor extends javax.swing.JInternalFrame {
         getContentPane().add(txtProfesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 50, 120, -1));
         getContentPane().add(txtMesNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 80, 80, 20));
 
+        jComboIdPais.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jComboIdPaisKeyReleased(evt);
+            }
+        });
         getContentPane().add(jComboIdPais, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 50, 120, -1));
 
         getContentPane().add(jComboIdUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 80, 120, -1));
@@ -372,16 +383,24 @@ public class frmEmprendedor extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtBuscarIDKeyReleased
 
     private void txtApellidoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtApellidoKeyReleased
-        // TODO add your handling code here:
+        btnAgregar.setEnabled(!txtNombre.getText().trim().isEmpty());
     }//GEN-LAST:event_txtApellidoKeyReleased
 
     private void txtProfesionKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtProfesionKeyReleased
-        // TODO add your handling code here:
+        btnAgregar.setEnabled(!txtNombre.getText().trim().isEmpty());
     }//GEN-LAST:event_txtProfesionKeyReleased
 
     private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarActionPerformed
         this.dispose();
     }//GEN-LAST:event_btnCerrarActionPerformed
+
+    private void jComboIdPaisKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jComboIdPaisKeyReleased
+        
+    }//GEN-LAST:event_jComboIdPaisKeyReleased
+
+    private void txtNombreKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNombreKeyReleased
+        btnAgregar.setEnabled(!txtNombre.getText().trim().isEmpty());
+    }//GEN-LAST:event_txtNombreKeyReleased
 
     private void eliminar(int id) throws SQLException {
         

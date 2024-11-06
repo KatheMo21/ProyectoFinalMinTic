@@ -215,6 +215,12 @@ public class frmGestionInformacion extends javax.swing.JInternalFrame {
         getContentPane().add(jComboIdProyecto, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 80, 120, -1));
 
         getContentPane().add(jComboIdEmprendedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 20, 120, -1));
+
+        txtFecha.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtFechaKeyReleased(evt);
+            }
+        });
         getContentPane().add(txtFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 80, 120, 20));
 
         jLabelID3.setForeground(new java.awt.Color(0, 0, 0));
@@ -316,6 +322,10 @@ public class frmGestionInformacion extends javax.swing.JInternalFrame {
     private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarActionPerformed
         this.dispose();
     }//GEN-LAST:event_btnCerrarActionPerformed
+
+    private void txtFechaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFechaKeyReleased
+        btnAgregar.setEnabled(!txtFecha.getText().trim().isEmpty());
+    }//GEN-LAST:event_txtFechaKeyReleased
 
     private void eliminar(int id) throws SQLException {
         
