@@ -364,7 +364,7 @@ public class frmPais extends javax.swing.JInternalFrame {
         jLabelFondo2.setPreferredSize(new java.awt.Dimension(1372, 776));
         bg.add(jLabelFondo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 1370, 740));
 
-        jLabelFondo3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo4.jpg"))); // NOI18N
+        jLabelFondo3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondoColoress.png"))); // NOI18N
         jLabelFondo3.setText("jLabel2");
         bg.add(jLabelFondo3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 0, 950, 590));
 
