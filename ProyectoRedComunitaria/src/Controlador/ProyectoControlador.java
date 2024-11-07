@@ -12,7 +12,7 @@ import java.util.List;
 
 /**
  *
- * @author FELIPE
+ * @author Katherin Monroy y Luis Felipe Alzate Osorio
  */
 public class ProyectoControlador {
     private ProyectoDAO proyectoDAO;

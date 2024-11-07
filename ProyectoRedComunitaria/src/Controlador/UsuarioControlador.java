@@ -13,7 +13,7 @@ import java.util.List;
 
 /**
  *
- * @author FELIPE
+ * @author Katherin Monroy y Luis Felipe Alzate Osorio
  */
 public class UsuarioControlador {
     private UsuarioDAO usuarioDAO;

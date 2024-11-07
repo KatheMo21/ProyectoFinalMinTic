@@ -24,7 +24,7 @@ import javax.swing.JTable;
 
 /**
  *
- * @author FELIPE
+ *@author Katherin Monroy y Luis Felipe Alzate Osorio 
  */
 public class frmGestionInformacion extends javax.swing.JInternalFrame {
     private GestionControlador gestionController;

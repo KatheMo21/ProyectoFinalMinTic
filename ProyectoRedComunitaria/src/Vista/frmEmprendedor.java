@@ -32,7 +32,7 @@ import javax.swing.table.DefaultTableModel;
     private List<Emprendedor> listaEmprendedor;
     DefaultTableModel tableModel = new DefaultTableModel();
  *
- * @author FELIPE
+ * @author Katherin Monroy y Luis Felipe Alzate Osorio
  */
 public class frmEmprendedor extends javax.swing.JInternalFrame {
     private EmprendedorControlador emprendedorController;

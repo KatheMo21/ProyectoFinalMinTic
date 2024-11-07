@@ -20,7 +20,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author FELIPE
+ * @author Katherin Monroy y Luis Felipe Alzate Osorio
  */
 public class frmPais extends javax.swing.JInternalFrame {
     private PaisControlador paisController;

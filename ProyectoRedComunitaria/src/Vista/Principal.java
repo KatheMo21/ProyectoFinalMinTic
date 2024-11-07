@@ -10,7 +10,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author FELIPE
+ * @author Katherin Monroy y Luis Felipe Alzate Osorio
  */
 public class Principal extends javax.swing.JFrame {
 

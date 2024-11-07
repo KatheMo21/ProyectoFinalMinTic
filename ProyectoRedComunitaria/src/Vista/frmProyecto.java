@@ -24,7 +24,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author FELIPE
+ * @author Katherin Monroy y Luis Felipe Alzate Osorio
  */
 public class frmProyecto extends javax.swing.JInternalFrame {
     private ProyectoControlador proyectoController;

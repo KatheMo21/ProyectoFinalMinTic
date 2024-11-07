@@ -20,7 +20,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author Katherin
+ * @author Katherin Monroy y Luis Felipe Alzate Osorio
  */
 public class frmUsuario extends javax.swing.JInternalFrame {
 

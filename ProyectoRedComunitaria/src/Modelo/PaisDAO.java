@@ -17,7 +17,7 @@ import java.util.List;
 
 /**
  *
- * @author Katherin
+ * @author Katherin Monroy y Luis Felipe Alzate Osorio
  */
 public class PaisDAO {
     private Connection connection;
